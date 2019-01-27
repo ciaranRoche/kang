@@ -20,14 +20,13 @@ import com.google.android.material.navigation.NavigationView
 import org.ciaranroche.kang.main.MainApp
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var appBarConfiguration : AppBarConfiguration
     lateinit var app : MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_activity)
-
-        app = application as MainApp
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -39,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
 
+
         val drawerLayout : DrawerLayout? = findViewById(R.id.drawer_layout)
         appBarConfiguration = AppBarConfiguration(
             setOf(R.id.home_dest, R.id.deeplink_dest),
@@ -49,6 +49,8 @@ class MainActivity : AppCompatActivity() {
         setupNavigationMenu(navController)
 
         setupBottomNavMenu(navController)
+
+        app = application as MainApp
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val dest: String = try {
