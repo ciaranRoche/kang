@@ -5,9 +5,16 @@
     <string name="home">Home</string>
     <string name="deeplink">Deep Link</string>
 
+    <!-- Input strings -->
+    <string name="vinyl_name">Vinyl Name</string>
+    <string name="vinyl_desc">Vinyl Description</string>
+
+    <!-- Button strings -->
+    <string name="add_vinyl">Add Vinyl</string>
+
     <!-- Screen strings -->
     <string name="step_one">Step One</string>
-    <string name="step_two">Step Two</string>
+    <string name="vinyl_list">My Vinyl</string>
     <string name="deep_link_instructions">Type your deep link args</string>
     <string name="settings_fragment_text">Settings Fragment</string>
     <string name="navigate_destination_button">Navigate to destination</string>

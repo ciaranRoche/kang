@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val button = view.findViewById<Button>(R.id.navigate_destination_button)
+        val button = view.findViewById<Button>(R.id.btn_add_vinyl)
         button?.setOnClickListener {
             findNavController().navigate(R.id.flow_step_one_dest)
         }
@@ -34,14 +34,9 @@ class HomeFragment : Fragment() {
                 popExit = R.anim.slide_out_right
             }
         }
-        view.findViewById<Button>(R.id.navigate_destination_button)?.setOnClickListener {
+        view.findViewById<Button>(R.id.btn_add_vinyl)?.setOnClickListener {
             findNavController().navigate(R.id.flow_step_one_dest, null, options)
         }
-
-
-        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.next_action, null)
-        )
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
