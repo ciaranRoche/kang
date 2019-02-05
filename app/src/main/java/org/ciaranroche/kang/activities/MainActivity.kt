@@ -53,6 +53,10 @@ class MainActivity : AppCompatActivity() {
 
         app = application as MainApp
 
+        app.vinyls.seed()
+
+        Log.i("boop", app.vinyls.findAll().toString())
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val dest: String = try {
                 resources.getResourceName(destination.id)

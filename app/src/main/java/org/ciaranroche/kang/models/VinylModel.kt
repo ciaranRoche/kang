@@ -7,4 +7,4 @@ import kotlinx.android.parcel.Parcelize
 
 @SuppressLint("ParcelCreator")
 @Parcelize
-data class VinylModel(var id: Long = 0, var name: String = "", var desc: String = "") : Parcelable
+data class VinylModel(var id: Long = 0,var artist: String = "", var name: String = "", var desc: String = "", var image: String = "") : Parcelable

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import org.ciaranroche.kang.R
 
+
 class AddVinylFragment : Fragment() {
 
     override fun onCreateView(
@@ -17,7 +18,7 @@ class AddVinylFragment : Fragment() {
     ): View? {
         setHasOptionsMenu(true)
 
-        val safeArgs = FlowStepFragmentArgs.fromBundle(arguments!!)
+        val safeArgs = AddVinylFragmentArgs.fromBundle(arguments!!)
         val flowStepNumber = safeArgs.flowStepNumber
 
         return when (flowStepNumber) {
