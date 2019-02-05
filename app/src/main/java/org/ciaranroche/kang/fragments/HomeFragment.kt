@@ -1,12 +1,12 @@
-package org.ciaranroche.kang
+package org.ciaranroche.kang.fragments
 
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import org.ciaranroche.kang.R
 
 class HomeFragment : Fragment() {
     override fun onCreateView(
@@ -23,7 +23,7 @@ class HomeFragment : Fragment() {
 
         val button = view.findViewById<Button>(R.id.btn_add_vinyl)
         button?.setOnClickListener {
-            findNavController().navigate(R.id.flow_step_one_dest)
+            findNavController().navigate(R.id.add_vinyl)
         }
 
         val options = navOptions {
@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
             }
         }
         view.findViewById<Button>(R.id.btn_add_vinyl)?.setOnClickListener {
-            findNavController().navigate(R.id.flow_step_one_dest, null, options)
+            findNavController().navigate(R.id.add_vinyl, null, options)
         }
     }
 

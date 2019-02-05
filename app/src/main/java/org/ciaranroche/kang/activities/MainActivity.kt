@@ -1,4 +1,4 @@
-package org.ciaranroche.kang
+package org.ciaranroche.kang.activities
 
 import android.content.res.Resources
 import android.os.Bundle
@@ -17,6 +17,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import org.ciaranroche.kang.R
 import org.ciaranroche.kang.main.MainApp
 
 class MainActivity : AppCompatActivity() {

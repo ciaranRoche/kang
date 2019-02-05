@@ -5,13 +5,13 @@
             app:startDestination="@+id/home_dest">
     <fragment
             android:id="@+id/home_dest"
-            android:name="org.ciaranroche.kang.HomeFragment"
+            android:name="org.ciaranroche.kang.fragments.HomeFragment"
             android:label="@string/home"
             tools:layout="@layout/home_fragment">
 
         <action
                 android:id="@+id/action_home_dest_to_flow_step_one_dest"
-                app:destination="@id/flow_step_one_dest" />
+                app:destination="@id/add_vinyl" />
 
         <action android:id="@+id/next_action"
                 app:destination="@+id/flow_step_two_dest"
@@ -22,8 +22,8 @@
     </fragment>
 
     <fragment
-            android:id="@+id/flow_step_one_dest"
-            android:name="org.ciaranroche.kang.FlowStepFragment"
+            android:id="@+id/add_vinyl"
+            android:name="org.ciaranroche.kang.fragments.FlowStepFragment"
             tools:layout="@layout/flow_step_one_fragment">
         <argument
                 android:name="flowStepNumber"
@@ -41,7 +41,7 @@
 
     <fragment
             android:id="@+id/flow_step_two_dest"
-            android:name="org.ciaranroche.kang.FlowStepFragment"
+            android:name="org.ciaranroche.kang.fragments.FlowStepFragment"
             tools:layout="@layout/flow_step_two_fragment">
 
         <argument
@@ -57,14 +57,14 @@
 
     <fragment
             android:id="@+id/settings_dest"
-            android:name="org.ciaranroche.kang.SettingsFragment"
+            android:name="org.ciaranroche.kang.fragments.SettingsFragment"
             android:label="@string/settings"
             tools:layout="@layout/settings_fragment" />
 
 
     <fragment
             android:id="@+id/deeplink_dest"
-            android:name="org.ciaranroche.kang.DeepLinkFragment"
+            android:name="org.ciaranroche.kang.fragments.DeepLinkFragment"
             android:label="@string/deeplink"
             tools:layout="@layout/deeplink_fragment">
 

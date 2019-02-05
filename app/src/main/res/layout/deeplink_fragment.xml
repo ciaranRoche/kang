@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context="org.ciaranroche.kang.DeepLinkFragment">
+    tools:context="org.ciaranroche.kang.fragments.DeepLinkFragment">
 
     <TextView
         android:id="@+id/text"

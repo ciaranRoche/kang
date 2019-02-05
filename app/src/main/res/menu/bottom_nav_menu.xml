@@ -5,6 +5,11 @@
             android:icon="@drawable/ic_home"
             android:title="@string/home" />
     <item
+            android:id="@id/add_vinyl"
+            android:icon="@drawable/plus_circle_outline"
+            android:title="@string/add_vinyl_menu"/>
+
+    <item
             android:id="@id/deeplink_dest"
             android:icon="@drawable/ic_android"
             android:title="@string/deeplink" />

@@ -1,10 +1,11 @@
-package org.ciaranroche.kang
+package org.ciaranroche.kang.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import org.ciaranroche.kang.R
 
 class SettingsFragment : Fragment() {
 

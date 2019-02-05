@@ -1,4 +1,4 @@
-package org.ciaranroche.kang
+package org.ciaranroche.kang.providers
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.RemoteViews
 import androidx.navigation.NavDeepLinkBuilder
+import org.ciaranroche.kang.R
 
 class DeepLinkAppWidgetProvider : AppWidgetProvider() {
     override fun onUpdate(

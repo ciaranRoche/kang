@@ -1,4 +1,4 @@
-package org.ciaranroche.kang
+package org.ciaranroche.kang.fragments
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import org.ciaranroche.kang.R
 
 class DeepLinkFragment : Fragment() {
     override fun onCreateView(

@@ -4,6 +4,7 @@
     <string name="settings">Settings</string>
     <string name="home">Home</string>
     <string name="deeplink">Deep Link</string>
+    <string name="add_vinyl_menu">Add Vinyl</string>
 
     <!-- Input strings -->
     <string name="vinyl_name">Vinyl Name</string>
