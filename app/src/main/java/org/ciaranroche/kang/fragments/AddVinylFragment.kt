@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import org.ciaranroche.kang.R
 
-class FlowStepFragment : Fragment() {
+class AddVinylFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,8 +21,8 @@ class FlowStepFragment : Fragment() {
         val flowStepNumber = safeArgs.flowStepNumber
 
         return when (flowStepNumber) {
-            2 -> inflater.inflate(R.layout.flow_step_two_fragment, container, false)
-            else -> inflater.inflate(R.layout.flow_step_one_fragment, container, false)
+            2 -> inflater.inflate(R.layout.add_vinyl_two_fragment, container, false)
+            else -> inflater.inflate(R.layout.add_vinyl_fragment, container, false)
         }
     }
 

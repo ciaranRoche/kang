@@ -23,8 +23,8 @@
 
     <fragment
             android:id="@+id/add_vinyl"
-            android:name="org.ciaranroche.kang.fragments.FlowStepFragment"
-            tools:layout="@layout/flow_step_one_fragment">
+            android:name="org.ciaranroche.kang.fragments.AddVinylFragment"
+            tools:layout="@layout/add_vinyl_fragment">
         <argument
                 android:name="flowStepNumber"
                 app:argType="integer"
@@ -41,8 +41,8 @@
 
     <fragment
             android:id="@+id/flow_step_two_dest"
-            android:name="org.ciaranroche.kang.fragments.FlowStepFragment"
-            tools:layout="@layout/flow_step_two_fragment">
+            android:name="org.ciaranroche.kang.fragments.AddVinylFragment"
+            tools:layout="@layout/add_vinyl_two_fragment">
 
         <argument
                 android:name="flowStepNumber"
