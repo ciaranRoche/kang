@@ -27,31 +27,14 @@
                 android:name="flowStepNumber"
                 app:argType="integer"
                 android:defaultValue="1"/>
-
         <action
-                android:id="@+id/next_action"
-                app:destination="@+id/flow_step_two_dest"
+                android:id="@+id/action_add_vinyl_to_vinylProfileFragment2"
+                app:destination="@id/vinylProfileFragment"
                 app:enterAnim="@anim/slide_in_right"
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
 
-    <fragment
-            android:id="@+id/flow_step_two_dest"
-            android:label="@string/add_vinyl"
-            android:name="org.ciaranroche.kang.fragments.AddVinylFragment"
-            tools:layout="@layout/add_vinyl_two_fragment">
-
-        <argument
-                android:name="flowStepNumber"
-                app:argType="integer"
-                android:defaultValue="2"/>
-
-        <action
-                android:id="@+id/next_action"
-                app:popUpTo="@id/vinylProfileFragment">
-        </action>
     </fragment>
 
     <fragment

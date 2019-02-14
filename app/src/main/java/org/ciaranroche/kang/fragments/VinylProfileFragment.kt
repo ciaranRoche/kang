@@ -34,16 +34,20 @@ class VinylProfileFragment : Fragment() {
         val artistTitle = view.findViewById<TextView>(R.id.artist_title)
         val albumTitle = view.findViewById<TextView>(R.id.album_title)
         val albumArt = view.findViewById<ImageView>(R.id.album_art)
+        val albumDesc = view.findViewById<TextView>(R.id.album_desc)
 
         vinyl = arguments!!.getParcelable("vinyl") as VinylModel
 
         artistTitle.text = vinyl.artist
         albumTitle.text = vinyl.name
-        Picasso.get()
-            .load(vinyl.image)
-            .resize(50, 50)
-            .centerCrop()
-            .into(albumArt)
+        albumDesc.text = vinyl.desc
+        if(vinyl.image != ""){
+            Picasso.get()
+                .load(vinyl.image)
+                .resize(50, 50)
+                .centerCrop()
+                .into(albumArt)
+        }
         return view
     }
 
