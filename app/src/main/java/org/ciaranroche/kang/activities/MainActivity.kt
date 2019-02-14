@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
 
-
         val drawerLayout : DrawerLayout? = findViewById(R.id.drawer_layout)
         appBarConfiguration = AppBarConfiguration(
             setOf(R.id.vinylProfileFragment, R.id.deeplink_dest, R.id.add_vinyl),
@@ -54,8 +53,6 @@ class MainActivity : AppCompatActivity() {
         app = application as MainApp
 
         app.vinyls.seed()
-
-        Log.i("boop", app.vinyls.findAll().toString())
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val dest: String = try {

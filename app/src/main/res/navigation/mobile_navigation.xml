@@ -8,7 +8,7 @@
             android:id="@+id/vinylProfileFragment"
             android:name="org.ciaranroche.kang.fragments.HomeFragment"
             android:label="Kang"
-            tools:layout="@layout/fragment_vinyl_profile">
+            tools:layout="@layout/fragment_vinyl_list">
         <action
                 android:id="@+id/action_vinylProfileFragment_to_add_vinyl"
                 app:destination="@id/add_vinyl"

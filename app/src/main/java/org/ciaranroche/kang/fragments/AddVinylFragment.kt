@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import org.ciaranroche.kang.R
 
-
 class AddVinylFragment : Fragment() {
 
     override fun onCreateView(

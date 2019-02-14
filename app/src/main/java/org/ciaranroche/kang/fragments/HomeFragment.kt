@@ -3,7 +3,6 @@ package org.ciaranroche.kang.fragments
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.navigation.navOptions
 import androidx.viewpager.widget.ViewPager
 import com.nshmura.recyclertablayout.RecyclerTabLayout
 import org.ciaranroche.kang.R
@@ -26,7 +25,7 @@ class HomeFragment : Fragment(){
     ): View? {
         setHasOptionsMenu(true)
 
-        val view = inflater.inflate(R.layout.fragment_vinyl_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_vinyl_list, container, false)
 
         data = VinylJSONStore(this.context!!.applicationContext)
         data.seed()
@@ -41,27 +40,6 @@ class HomeFragment : Fragment(){
         recyclerTabLayout.setUpWithViewPager(viewPager)
 
         return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-//        val button = view.findViewById<Button>(R.id.btn_add_vinyl)
-//        button?.setOnClickListener {
-//            findNavController().navigate(R.id.add_vinyl)
-//        }
-
-//        val options = navOptions {
-//            anim {
-//                enter = R.anim.slide_in_right
-//                exit = R.anim.slide_out_left
-//                popEnter = R.anim.slide_in_left
-//                popExit = R.anim.slide_out_right
-//            }
-//        }
-//        view.findViewById<Button>(R.id.btn_add_vinyl)?.setOnClickListener {
-//            findNavController().navigate(R.id.add_vinyl, null, options)
-//        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

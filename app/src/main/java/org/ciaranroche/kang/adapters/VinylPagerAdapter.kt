@@ -6,10 +6,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import org.ciaranroche.kang.fragments.VinylProfileFragment
 import org.ciaranroche.kang.models.VinylModel
 
-interface VinylListener {
-    fun onVinylClick(vinyl: VinylModel)
-}
-
 class VinylPagerAdapter(fragmentManager: FragmentManager, private val vinyls: ArrayList<VinylModel>) : FragmentStatePagerAdapter(fragmentManager) {
 
     private val MAX_VALUE = 200
