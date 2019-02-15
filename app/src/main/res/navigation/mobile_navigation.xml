@@ -67,7 +67,7 @@
     </fragment>
     <fragment
             android:id="@+id/thankYouFragment"
-            android:name="org.ciaranroche.kang.ThankYouFragment"
+            android:name="org.ciaranroche.kang.fragments.ThankYouFragment"
             android:label="fragment_thank_you"
             tools:layout="@layout/fragment_thank_you">
         <action
