@@ -14,6 +14,9 @@
 
     <!-- Button strings -->
     <string name="add_vinyl">Add Vinyl</string>
+    <string name="add_image">Set an Image</string>
+    <string name="view_kang">View all Kang</string>
+    <string name="return_kang">Return to Kang</string>
 
     <!-- Screen strings -->
     <string name="vinyl_list">My Vinyl</string>
@@ -24,5 +27,7 @@
     <string name="next_step_button">Navigate next step</string>
     <string name="finish_button">Finish Flow</string>
     <string name="send_deep_link_notification_button">Send deep link notification</string>
+    <string name="welcome">Welcome to a Mobile Kang DataBase</string>
+    <string name="thankyou">Thank you for your Contribution</string>
 
 </resources>

@@ -44,6 +44,8 @@ class VinylProfileFragment : Fragment() {
         if(vinyl.image != ""){
             Picasso.get()
                 .load(vinyl.image)
+                .resize(1080,1080)
+                .centerCrop()
                 .into(albumArt)
         }
         return view

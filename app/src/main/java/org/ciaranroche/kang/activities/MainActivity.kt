@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_activity)
 
+        app = application as MainApp
+
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -49,10 +51,6 @@ class MainActivity : AppCompatActivity() {
         setupNavigationMenu(navController)
 
         setupBottomNavMenu(navController)
-
-        app = application as MainApp
-
-        app.vinyls.seed()
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val dest: String = try {

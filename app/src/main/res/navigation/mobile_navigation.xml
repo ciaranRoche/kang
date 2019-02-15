@@ -2,8 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
-            app:startDestination="@+id/vinylProfileFragment"
+            app:startDestination="@+id/welcomeFragment"
         >
+    <fragment
+            android:id="@+id/welcomeFragment"
+            android:name="org.ciaranroche.kang.fragments.WelcomeFragment"
+            android:label="fragment_welcome"
+            tools:layout="@layout/fragment_welcome">
+        <action
+                android:id="@+id/action_welcomeFragment_to_vinylProfileFragment"
+                app:destination="@id/vinylProfileFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
             android:id="@+id/vinylProfileFragment"
             android:name="org.ciaranroche.kang.fragments.HomeFragment"
@@ -28,12 +41,8 @@
                 app:argType="integer"
                 android:defaultValue="1"/>
         <action
-                android:id="@+id/action_add_vinyl_to_vinylProfileFragment2"
-                app:destination="@id/vinylProfileFragment"
-                app:enterAnim="@anim/slide_in_right"
-                app:exitAnim="@anim/slide_out_left"
-                app:popEnterAnim="@anim/slide_in_left"
-                app:popExitAnim="@anim/slide_out_right"/>
+                android:id="@+id/action_add_vinyl_to_thankYouFragment"
+                app:destination="@id/thankYouFragment"/>
 
     </fragment>
 
@@ -55,5 +64,14 @@
                 android:defaultValue="Android!"/>
 
         <deepLink app:uri="www.example.com/{myarg}" />
+    </fragment>
+    <fragment
+            android:id="@+id/thankYouFragment"
+            android:name="org.ciaranroche.kang.ThankYouFragment"
+            android:label="fragment_thank_you"
+            tools:layout="@layout/fragment_thank_you">
+        <action
+                android:id="@+id/action_thankYouFragment_to_vinylProfileFragment"
+                app:destination="@id/vinylProfileFragment"/>
     </fragment>
 </navigation>

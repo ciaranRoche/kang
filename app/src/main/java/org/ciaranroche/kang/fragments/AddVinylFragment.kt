@@ -13,6 +13,8 @@ import androidx.navigation.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.helpers.showImagePicker
+import org.ciaranroche.kang.main.MainApp
+import org.ciaranroche.kang.models.VinylFireStore
 import org.ciaranroche.kang.models.VinylJSONStore
 import org.ciaranroche.kang.models.VinylModel
 
@@ -20,10 +22,12 @@ class AddVinylFragment : Fragment() {
 
     var vinyl = VinylModel()
 
+    lateinit var app : MainApp
+
     var IMAGE_REQUEST = 1
     var imageLocation = ""
 
-    lateinit var data: VinylJSONStore
+    lateinit var data: VinylFireStore
     lateinit var addBtn: Button
     lateinit var imageBtn: Button
     lateinit var vinylName: TextInputEditText
@@ -37,7 +41,7 @@ class AddVinylFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.add_vinyl_fragment, container, false)
 
-        data = VinylJSONStore(this.context!!.applicationContext)
+        app = this.context!!.applicationContext as MainApp
 
         addBtn = view.findViewById(R.id.next_button)
         imageBtn = view.findViewById(R.id.image_button)
@@ -52,8 +56,8 @@ class AddVinylFragment : Fragment() {
             vinyl.artist = artistName.text.toString()
             vinyl.desc = albumDesc.text.toString()
             vinyl.image = imageLocation
-            data.create(vinyl)
-            view.findNavController().navigate(R.id.action_add_vinyl_to_vinylProfileFragment2)
+            app.vinyls.create(vinyl)
+            view.findNavController().navigate(R.id.action_add_vinyl_to_thankYouFragment)
         }
 
         imageBtn.setOnClickListener {
