@@ -29,6 +29,9 @@
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
+        <action
+                android:id="@+id/action_vinylProfileFragment_to_vinylMoreFragment"
+                app:destination="@id/vinylMoreFragment"/>
     </fragment>
 
     <fragment
@@ -73,5 +76,14 @@
         <action
                 android:id="@+id/action_thankYouFragment_to_vinylProfileFragment"
                 app:destination="@id/vinylProfileFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/vinylMoreFragment"
+            android:name="org.ciaranroche.kang.fragments.VinylMoreFragment"
+            android:label="fragment_vinyl_more"
+            tools:layout="@layout/fragment_vinyl_more">
+        <action
+                android:id="@+id/action_vinylMoreFragment_to_thankYouFragment"
+                app:destination="@id/thankYouFragment"/>
     </fragment>
 </navigation>

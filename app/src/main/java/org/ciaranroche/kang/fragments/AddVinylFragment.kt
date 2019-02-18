@@ -27,7 +27,6 @@ class AddVinylFragment : Fragment() {
     var IMAGE_REQUEST = 1
     var imageLocation = ""
 
-    lateinit var data: VinylFireStore
     lateinit var addBtn: Button
     lateinit var imageBtn: Button
     lateinit var vinylName: TextInputEditText

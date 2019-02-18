@@ -2,7 +2,6 @@ package org.ciaranroche.kang.fragments
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import com.squareup.picasso.Picasso
 
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.models.VinylModel
+
+
 
 
 class VinylProfileFragment : Fragment() {
@@ -51,7 +53,11 @@ class VinylProfileFragment : Fragment() {
         }
 
         moreBtn.setOnClickListener {
-            Log.i("boop", vinyl.toString())
+            view ->
+            val bundle = Bundle()
+            bundle.putParcelable("vinyl", vinyl)
+            view.findNavController().navigate(R.id.action_vinylProfileFragment_to_vinylMoreFragment, bundle)
+
         }
         return view
     }
