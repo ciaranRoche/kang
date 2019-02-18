@@ -27,6 +27,7 @@ class VinylFireStore(val context: Context) : VinylStore {
             foundVinyl.name = vinyl.name
             foundVinyl.image = vinyl.image
         }
+        db.child("collections").child(appId).child("vinyls").child(vinyl.fbid).setValue(vinyl)
     }
 
     override fun delete(vinyl: VinylModel) {
