@@ -37,7 +37,6 @@ class VinylFireStore(val context: Context) : VinylStore {
 
     override fun findAll(): MutableList<VinylModel> {
         fetchVinyls {}
-        Log.i("boop-find", vinyls.toString())
         return vinyls
     }
 
@@ -47,14 +46,11 @@ class VinylFireStore(val context: Context) : VinylStore {
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                Log.i("boop-boo", dataSnapshot.toString())
                 //dataSnapshot.children.mapNotNullTo(vinyls) { it.getValue<VinylModel>(VinylModel::class.java)}
                 dataSnapshot.children.iterator().forEach { vinyls.add(it.getValue<VinylModel>(VinylModel::class.java)!!) }
-                Log.i("boop-booo", vinyls.toString())
                 vinylsReady()
             }
         }
-        Log.i("boop-boop", vinyls.toString())
         db = FirebaseDatabase.getInstance().reference
         vinyls.clear()
         db.child("collections").child(appId).child("vinyls").addListenerForSingleValueEvent(valueEventListener)

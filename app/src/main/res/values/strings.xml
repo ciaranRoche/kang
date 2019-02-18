@@ -17,6 +17,7 @@
     <string name="add_image">Set an Image</string>
     <string name="view_kang">View all Kang</string>
     <string name="return_kang">Return to Kang</string>
+    <string name="more_info">Read More</string>
 
     <!-- Screen strings -->
     <string name="vinyl_list">My Vinyl</string>

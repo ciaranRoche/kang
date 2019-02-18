@@ -2,10 +2,12 @@ package org.ciaranroche.kang.fragments
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
@@ -34,19 +36,22 @@ class VinylProfileFragment : Fragment() {
         val artistTitle = view.findViewById<TextView>(R.id.artist_title)
         val albumTitle = view.findViewById<TextView>(R.id.album_title)
         val albumArt = view.findViewById<ImageView>(R.id.album_art)
-        val albumDesc = view.findViewById<TextView>(R.id.album_desc)
+        val moreBtn = view.findViewById<Button>(R.id.more_button)
 
         vinyl = arguments!!.getParcelable("vinyl") as VinylModel
 
         artistTitle.text = vinyl.artist
         albumTitle.text = vinyl.name
-        albumDesc.text = vinyl.desc
         if(vinyl.image != ""){
             Picasso.get()
                 .load(vinyl.image)
                 .resize(1080,1080)
                 .centerCrop()
                 .into(albumArt)
+        }
+
+        moreBtn.setOnClickListener {
+            Log.i("boop", vinyl.toString())
         }
         return view
     }

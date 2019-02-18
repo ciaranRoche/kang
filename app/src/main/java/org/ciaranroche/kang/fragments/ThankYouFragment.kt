@@ -1,7 +1,5 @@
 package org.ciaranroche.kang.fragments
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
+import org.ciaranroche.kang.R
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,8 +33,8 @@ class ThankYouFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(org.ciaranroche.kang.fragments.ARG_PARAM1)
-            param2 = it.getString(org.ciaranroche.kang.fragments.ARG_PARAM2)
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -44,10 +43,10 @@ class ThankYouFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(org.ciaranroche.kang.R.layout.fragment_thank_you, container, false)
-        mveBtn = view.findViewById(org.ciaranroche.kang.R.id.move_button)
+        val view = inflater.inflate(R.layout.fragment_thank_you, container, false)
+        mveBtn = view.findViewById(R.id.move_button)
 
-        mveBtn.setOnClickListener { view ->  view.findNavController().navigate(org.ciaranroche.kang.R.id.action_thankYouFragment_to_vinylProfileFragment)
+        mveBtn.setOnClickListener { view ->  view.findNavController().navigate(R.id.action_thankYouFragment_to_vinylProfileFragment)
         }
         return view
     }
@@ -55,10 +54,10 @@ class ThankYouFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            org.ciaranroche.kang.fragments.ThankYouFragment().apply {
+            ThankYouFragment().apply {
                 arguments = Bundle().apply {
-                    putString(org.ciaranroche.kang.fragments.ARG_PARAM1, param1)
-                    putString(org.ciaranroche.kang.fragments.ARG_PARAM2, param2)
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
                 }
             }
     }
