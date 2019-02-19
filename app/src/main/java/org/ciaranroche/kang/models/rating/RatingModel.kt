@@ -1,4 +1,4 @@
-package org.ciaranroche.kang.models
+package org.ciaranroche.kang.models.rating
 
 import android.annotation.SuppressLint
 import android.os.Parcelable

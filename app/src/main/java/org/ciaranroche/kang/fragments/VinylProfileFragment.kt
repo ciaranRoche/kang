@@ -13,7 +13,7 @@ import androidx.navigation.findNavController
 import com.squareup.picasso.Picasso
 
 import org.ciaranroche.kang.R
-import org.ciaranroche.kang.models.VinylModel
+import org.ciaranroche.kang.models.vinyl.VinylModel
 
 
 

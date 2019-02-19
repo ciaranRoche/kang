@@ -1,4 +1,4 @@
-package org.ciaranroche.kang.models
+package org.ciaranroche.kang.models.vinyl
 
 interface VinylStore {
     fun create(vinyl: VinylModel)

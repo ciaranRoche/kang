@@ -1,10 +1,7 @@
 package org.ciaranroche.kang.fragments
 
 import android.os.Bundle
-import android.provider.Contacts
-import android.provider.Contacts.Intents.UI
 
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
@@ -12,10 +9,6 @@ import com.nshmura.recyclertablayout.RecyclerTabLayout
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.adapters.VinylPagerAdapter
 import org.ciaranroche.kang.main.MainApp
-import org.ciaranroche.kang.models.VinylFireStore
-import org.ciaranroche.kang.models.VinylModel
-import org.ciaranroche.kang.models.generateRandomId
-import org.jetbrains.anko.doAsync
 
 
 class HomeFragment : Fragment(){

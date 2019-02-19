@@ -2,21 +2,17 @@ package org.ciaranroche.kang.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.helpers.showImagePicker
 import org.ciaranroche.kang.main.MainApp
-import org.ciaranroche.kang.models.VinylFireStore
-import org.ciaranroche.kang.models.VinylJSONStore
-import org.ciaranroche.kang.models.VinylModel
+import org.ciaranroche.kang.models.vinyl.VinylModel
 
 class AddVinylFragment : Fragment() {
 

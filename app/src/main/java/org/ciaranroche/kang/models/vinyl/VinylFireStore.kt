@@ -1,7 +1,6 @@
-package org.ciaranroche.kang.models
+package org.ciaranroche.kang.models.vinyl
 
 import android.content.Context
-import android.util.Log
 import com.google.firebase.database.*
 
 
@@ -48,7 +47,8 @@ class VinylFireStore(val context: Context) : VinylStore {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 //dataSnapshot.children.mapNotNullTo(vinyls) { it.getValue<VinylModel>(VinylModel::class.java)}
-                dataSnapshot.children.iterator().forEach { vinyls.add(it.getValue<VinylModel>(VinylModel::class.java)!!) }
+                dataSnapshot.children.iterator().forEach { vinyls.add(it.getValue<VinylModel>(
+                    VinylModel::class.java)!!) }
                 vinylsReady()
             }
         }

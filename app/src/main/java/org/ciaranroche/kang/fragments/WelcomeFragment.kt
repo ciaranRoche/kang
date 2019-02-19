@@ -13,10 +13,10 @@ import org.ciaranroche.kang.R
 import org.ciaranroche.kang.adapters.GenreAdapter
 import org.ciaranroche.kang.adapters.GenreListener
 import org.ciaranroche.kang.main.MainApp
+import org.ciaranroche.kang.models.genre.GenreModel
 
 
 class WelcomeFragment : Fragment(), GenreListener {
-    lateinit var mveBtn: Button
     lateinit var app : MainApp
     lateinit var recyclerView: RecyclerView
 
@@ -31,11 +31,6 @@ class WelcomeFragment : Fragment(), GenreListener {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_welcome, container, false)
-        mveBtn = view.findViewById(R.id.move_button)
-
-        mveBtn.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_welcomeFragment_to_vinylProfileFragment)
-        }
 
         app = this.context!!.applicationContext as MainApp
 
@@ -47,7 +42,7 @@ class WelcomeFragment : Fragment(), GenreListener {
         return view
     }
 
-    override fun onGenreClick(genre: String) {
+    override fun onGenreClick(genre: GenreModel) {
         view?.findNavController()?.navigate(R.id.action_welcomeFragment_to_vinylProfileFragment)
     }
 }

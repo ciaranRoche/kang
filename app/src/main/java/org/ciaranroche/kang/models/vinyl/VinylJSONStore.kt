@@ -1,4 +1,4 @@
-package org.ciaranroche.kang.models
+package org.ciaranroche.kang.models.vinyl
 
 import android.content.Context
 import com.google.gson.Gson
@@ -62,7 +62,9 @@ class VinylJSONStore(val context: Context) : VinylStore {
 //    }
 
     private fun serialize() {
-        val jsonString = gsonBuilder.toJson(vinyls, listType)
+        val jsonString = gsonBuilder.toJson(vinyls,
+            listType
+        )
         write(context, JSON_FILE, jsonString)
     }
 

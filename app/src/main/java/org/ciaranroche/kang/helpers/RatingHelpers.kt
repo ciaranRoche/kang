@@ -1,8 +1,8 @@
 package org.ciaranroche.kang.helpers
 
-import org.ciaranroche.kang.models.RatingModel
+import org.ciaranroche.kang.models.rating.RatingModel
 
-fun addNewRating(newRating: Int, rating: RatingModel): RatingModel{
+fun addNewRating(newRating: Int, rating: RatingModel): RatingModel {
     when (newRating) {
         1 -> rating.onestar += 1
         2 -> rating.twostar += 1

@@ -1,7 +1,6 @@
 package org.ciaranroche.kang.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +15,7 @@ import org.ciaranroche.kang.R
 import org.ciaranroche.kang.helpers.addNewRating
 import org.ciaranroche.kang.helpers.returnRating
 import org.ciaranroche.kang.main.MainApp
-import org.ciaranroche.kang.models.VinylModel
+import org.ciaranroche.kang.models.vinyl.VinylModel
 
 
 
