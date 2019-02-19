@@ -1,6 +1,7 @@
 package org.ciaranroche.kang.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,9 @@ import android.widget.Button
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.card_vinyl.view.*
-import kotlinx.android.synthetic.main.fragment_welcome.*
 import org.ciaranroche.kang.R
+import org.ciaranroche.kang.adapters.GenreAdapter
+import org.ciaranroche.kang.adapters.GenreListener
 import org.ciaranroche.kang.main.MainApp
 
 
@@ -29,7 +30,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class WelcomeFragment : Fragment() {
+class WelcomeFragment : Fragment(), GenreListener {
     lateinit var mveBtn: Button
     lateinit var app : MainApp
     lateinit var recyclerView: RecyclerView
@@ -56,9 +57,13 @@ class WelcomeFragment : Fragment() {
         val layoutManager = LinearLayoutManager(this.context)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = GenreAdapter(app.genreList)
+        recyclerView.adapter = GenreAdapter(app.genreList, this)
 
         return view
+    }
+
+    override fun onGenreClick(genre: String) {
+        Log.i("boop", genre)
     }
 
     companion object {
@@ -73,21 +78,3 @@ class WelcomeFragment : Fragment() {
     }
 }
 
-class GenreAdapter constructor(private var genres: List<String>) : RecyclerView.Adapter<GenreAdapter.MainHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenreAdapter.MainHolder {
-        return MainHolder(LayoutInflater.from(parent?.context).inflate(R.layout.card_vinyl, parent, false))
-    }
-
-    override fun getItemCount(): Int = genres.size
-
-    override fun onBindViewHolder(holder: GenreAdapter.MainHolder, position: Int) {
-        val genre = genres[holder.adapterPosition]
-        holder.bind(genre)
-    }
-
-    class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bind(genre: String){
-            itemView.vinylGenre.text = genre
-        }
-    }
-}

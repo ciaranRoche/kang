@@ -17,6 +17,7 @@ class MainApp : Application() {
         vinyls = VinylFireStore(applicationContext)
         vinylsList = vinyls.findAll() as ArrayList<VinylModel>
         genreList = ArrayList()
+        genreList.add("All")
         genreList.add("Doom")
         genreList.add("Sludge")
         Log.i("start", "Application Started")
