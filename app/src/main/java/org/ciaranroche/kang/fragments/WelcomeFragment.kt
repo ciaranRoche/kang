@@ -1,7 +1,6 @@
 package org.ciaranroche.kang.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,20 +15,6 @@ import org.ciaranroche.kang.adapters.GenreListener
 import org.ciaranroche.kang.main.MainApp
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [WelcomeFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [WelcomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class WelcomeFragment : Fragment(), GenreListener {
     lateinit var mveBtn: Button
     lateinit var app : MainApp
@@ -63,18 +48,7 @@ class WelcomeFragment : Fragment(), GenreListener {
     }
 
     override fun onGenreClick(genre: String) {
-        Log.i("boop", genre)
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            WelcomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        view?.findNavController()?.navigate(R.id.action_welcomeFragment_to_vinylProfileFragment)
     }
 }
 
