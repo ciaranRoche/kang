@@ -7,7 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.card_vinyl.view.*
+import kotlinx.android.synthetic.main.fragment_welcome.*
 import org.ciaranroche.kang.R
+import org.ciaranroche.kang.main.MainApp
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -25,16 +30,13 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class WelcomeFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
     lateinit var mveBtn: Button
-
+    lateinit var app : MainApp
+    lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -49,6 +51,13 @@ class WelcomeFragment : Fragment() {
             view.findNavController().navigate(R.id.action_welcomeFragment_to_vinylProfileFragment)
         }
 
+        app = this.context!!.applicationContext as MainApp
+
+        val layoutManager = LinearLayoutManager(this.context)
+        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = GenreAdapter(app.genreList)
+
         return view
     }
 
@@ -61,5 +70,24 @@ class WelcomeFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+}
+
+class GenreAdapter constructor(private var genres: List<String>) : RecyclerView.Adapter<GenreAdapter.MainHolder>(){
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenreAdapter.MainHolder {
+        return MainHolder(LayoutInflater.from(parent?.context).inflate(R.layout.card_vinyl, parent, false))
+    }
+
+    override fun getItemCount(): Int = genres.size
+
+    override fun onBindViewHolder(holder: GenreAdapter.MainHolder, position: Int) {
+        val genre = genres[holder.adapterPosition]
+        holder.bind(genre)
+    }
+
+    class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
+        fun bind(genre: String){
+            itemView.vinylGenre.text = genre
+        }
     }
 }
