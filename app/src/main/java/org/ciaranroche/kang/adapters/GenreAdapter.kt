@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_vinyl.view.*
 import org.ciaranroche.kang.R
+import org.ciaranroche.kang.listeners.GenreListener
 import org.ciaranroche.kang.models.genre.GenreModel
 import org.jetbrains.anko.backgroundColorResource
 

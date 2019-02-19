@@ -1,4 +1,4 @@
-package org.ciaranroche.kang.adapters
+package org.ciaranroche.kang.listeners
 
 import org.ciaranroche.kang.models.genre.GenreModel
 

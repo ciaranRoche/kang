@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="genres_array">
+        <item>Traditional</item>
+        <item>Black</item>
+        <item>Death</item>
+        <item>Funeral</item>
+        <item>Drone</item>
+        <item>Gothic</item>
+        <item>Progressive</item>
+        <item>Sludge</item>
+        <item>Stoner</item>
+    </string-array>
+</resources>

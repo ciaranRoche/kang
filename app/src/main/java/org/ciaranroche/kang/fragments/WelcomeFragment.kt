@@ -5,13 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.adapters.GenreAdapter
-import org.ciaranroche.kang.adapters.GenreListener
+import org.ciaranroche.kang.listeners.GenreListener
 import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.genre.GenreModel
 
