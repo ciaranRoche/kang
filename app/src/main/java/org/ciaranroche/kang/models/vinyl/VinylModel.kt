@@ -3,6 +3,7 @@ package org.ciaranroche.kang.models.vinyl
 import android.annotation.SuppressLint
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import org.ciaranroche.kang.models.genre.GenreModel
 import org.ciaranroche.kang.models.rating.RatingModel
 
 
@@ -14,6 +15,6 @@ data class VinylModel(var id: Long = 0,
                       var name: String = "",
                       var desc: String = "",
                       var image: String = "",
-                      var genre: String = "",
+                      var genre: GenreModel = GenreModel(),
                       var rating: RatingModel = RatingModel()
 ) : Parcelable

@@ -16,10 +16,8 @@ import org.ciaranroche.kang.helpers.showImagePicker
 import org.ciaranroche.kang.listeners.GenreSpinnerListener
 import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.vinyl.VinylModel
-import org.jetbrains.anko.sdk27.coroutines.onItemSelectedListener
 
 class AddVinylFragment : Fragment() {
-
     var vinyl = VinylModel()
 
     lateinit var app : MainApp
@@ -61,7 +59,9 @@ class AddVinylFragment : Fragment() {
             spinner.adapter = adapter
         }
 
-        spinner.onItemSelectedListener = GenreSpinnerListener()
+        val genreListener = GenreSpinnerListener()
+
+        spinner.onItemSelectedListener = genreListener
 
         addBtn.setOnClickListener {
             view ->
@@ -69,6 +69,7 @@ class AddVinylFragment : Fragment() {
             vinyl.artist = artistName.text.toString()
             vinyl.desc = albumDesc.text.toString()
             vinyl.image = imageLocation
+            vinyl.genre = genreListener.genre
             app.vinyls.create(vinyl)
             view.findNavController().navigate(R.id.action_add_vinyl_to_thankYouFragment)
         }
