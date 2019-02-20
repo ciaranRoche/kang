@@ -31,7 +31,14 @@
                 app:popExitAnim="@anim/slide_out_right"/>
         <action
                 android:id="@+id/action_vinylProfileFragment_to_vinylMoreFragment"
-                app:destination="@id/vinylMoreFragment"/>
+                app:destination="@id/vinylMoreFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+        <action
+                android:id="@+id/action_vinylProfileFragment_to_noVinylFragment"
+                app:destination="@id/noVinylFragment"/>
     </fragment>
 
     <fragment
@@ -45,7 +52,11 @@
                 android:defaultValue="1"/>
         <action
                 android:id="@+id/action_add_vinyl_to_thankYouFragment"
-                app:destination="@id/thankYouFragment"/>
+                app:destination="@id/thankYouFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
 
     </fragment>
 
@@ -75,7 +86,11 @@
             tools:layout="@layout/fragment_thank_you">
         <action
                 android:id="@+id/action_thankYouFragment_to_vinylProfileFragment"
-                app:destination="@id/vinylProfileFragment"/>
+                app:destination="@id/vinylProfileFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
             android:id="@+id/vinylMoreFragment"
@@ -84,6 +99,23 @@
             tools:layout="@layout/fragment_vinyl_more">
         <action
                 android:id="@+id/action_vinylMoreFragment_to_thankYouFragment"
-                app:destination="@id/thankYouFragment"/>
+                app:destination="@id/thankYouFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+            android:id="@+id/noVinylFragment"
+            android:name="org.ciaranroche.kang.fragments.NoVinylFragment"
+            android:label="fragment_no_vinyl"
+            tools:layout="@layout/fragment_no_vinyl">
+        <action
+                android:id="@+id/action_noVinylFragment_to_add_vinyl"
+                app:destination="@id/add_vinyl"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 </navigation>

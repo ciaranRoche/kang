@@ -30,6 +30,7 @@
     <string name="send_deep_link_notification_button">Send deep link notification</string>
     <string name="welcome">Welcome to a Mobile Kang DataBase</string>
     <string name="thankyou">Thank you for your Contribution</string>
+    <string name="norecord">Aww dawg, there is no records for this genre</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
