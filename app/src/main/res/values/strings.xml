@@ -11,6 +11,7 @@
     <string name="vinyl_desc">About the Record</string>
     <string name="vinyl_artist">Artist</string>
     <string name="select_vinyl_image">Select A Vinyl Image</string>
+    <string name="vinyl_genre">Select Genre</string>
 
     <!-- Button strings -->
     <string name="add_vinyl">Add Vinyl</string>
