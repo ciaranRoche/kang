@@ -10,11 +10,10 @@ import org.ciaranroche.kang.R
 class SettingsFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.settings_fragment, container, false)
     }
-
 }

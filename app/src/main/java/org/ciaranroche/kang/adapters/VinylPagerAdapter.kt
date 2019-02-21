@@ -21,5 +21,4 @@ class VinylPagerAdapter(fragmentManager: FragmentManager, private val vinyls: Ar
     override fun getPageTitle(position: Int): CharSequence? {
         return vinyls[position % vinyls.size].name
     }
-
 }

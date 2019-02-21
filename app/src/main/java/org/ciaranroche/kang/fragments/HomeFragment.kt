@@ -1,9 +1,12 @@
 package org.ciaranroche.kang.fragments
 
 import android.os.Bundle
-import android.util.Log
 
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.Menu
+import android.view.MenuInflater
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -15,14 +18,13 @@ import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.genre.GenreModel
 import org.ciaranroche.kang.models.vinyl.VinylModel
 
-
-class HomeFragment : Fragment(){
+class HomeFragment : Fragment() {
 
     lateinit var viewPager: ViewPager
     lateinit var pagerAdapter: VinylPagerAdapter
     lateinit var recyclerTabLayout: RecyclerTabLayout
     lateinit var mveBtn: Button
-    lateinit var app : MainApp
+    lateinit var app: MainApp
     lateinit var genre: GenreModel
     lateinit var vinylList: ArrayList<VinylModel>
 
@@ -34,16 +36,15 @@ class HomeFragment : Fragment(){
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
 
-        val view : View
+        val view: View
 
         app = this.context!!.applicationContext as MainApp
-
 
         if (genre.title != "All") {
             vinylList = ArrayList()
@@ -52,7 +53,7 @@ class HomeFragment : Fragment(){
             vinylList = app.vinylsList
         }
 
-        if(vinylList.size == 0){
+        if (vinylList.size == 0) {
             view = inflater.inflate(R.layout.fragment_no_vinyl, container, false)
             mveBtn = view.findViewById(R.id.move_button)
 
@@ -78,5 +79,4 @@ class HomeFragment : Fragment(){
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.main_menu, menu)
     }
-
 }

@@ -18,9 +18,9 @@ import org.ciaranroche.kang.R
 
 class DeepLinkFragment : Fragment() {
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.deeplink_fragment, container, false)
     }

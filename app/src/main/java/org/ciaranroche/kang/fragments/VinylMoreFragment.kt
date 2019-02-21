@@ -17,12 +17,10 @@ import org.ciaranroche.kang.helpers.returnRating
 import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.vinyl.VinylModel
 
-
-
 class VinylMoreFragment : Fragment() {
 
     lateinit var vinyl: VinylModel
-    lateinit var app : MainApp
+    lateinit var app: MainApp
     lateinit var ratingBar: RatingBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +31,8 @@ class VinylMoreFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_vinyl_more, container, false)
@@ -54,10 +53,10 @@ class VinylMoreFragment : Fragment() {
         vinylDesc.text = vinyl.desc
         ratingBar.rating = returnRating(vinyl.rating).toFloat()
 
-        if(vinyl.image != ""){
+        if (vinyl.image != "") {
             Picasso.get()
                 .load(vinyl.image)
-                .resize(1080,1080)
+                .resize(1080, 1080)
                 .centerCrop()
                 .into(vinylArt)
         }

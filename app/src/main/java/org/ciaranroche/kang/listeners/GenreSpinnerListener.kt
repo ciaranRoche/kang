@@ -1,12 +1,11 @@
 package org.ciaranroche.kang.listeners
 
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import org.ciaranroche.kang.helpers.seedGenres
 import org.ciaranroche.kang.models.genre.GenreModel
 
-class GenreSpinnerListener : AdapterView.OnItemSelectedListener{
+class GenreSpinnerListener : AdapterView.OnItemSelectedListener {
 
     lateinit var genre: GenreModel
     lateinit var genreList: ArrayList<GenreModel>
@@ -17,7 +16,7 @@ class GenreSpinnerListener : AdapterView.OnItemSelectedListener{
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
         genreList = seedGenres()
         genre = when (parent?.getItemAtPosition(pos).toString()) {
-            "Traditional" -> genreList.find { g -> g.title == "Traditional"}!!
+            "Traditional" -> genreList.find { g -> g.title == "Traditional" }!!
             "Black" -> genreList.find { g -> g.title == "Black" }!!
             "Death" -> genreList.find { g -> g.title == "Death" }!!
             "Funeral" -> genreList.find { g -> g.title == "Funeral" }!!
@@ -27,10 +26,8 @@ class GenreSpinnerListener : AdapterView.OnItemSelectedListener{
             "Sludge" -> genreList.find { g -> g.title == "Sludge" }!!
             "Stoner" -> genreList.find { g -> g.title == "Stoner" }!!
             else -> {
-                genreList.find { g -> g.title == "Traditional"}!!
+                genreList.find { g -> g.title == "Traditional" }!!
             }
-
         }
     }
-
 }

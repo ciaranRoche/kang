@@ -22,8 +22,8 @@ import org.ciaranroche.kang.main.MainApp
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration : AppBarConfiguration
-    lateinit var app : MainApp
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
 
-        val drawerLayout : DrawerLayout? = findViewById(R.id.drawer_layout)
+        val drawerLayout: DrawerLayout? = findViewById(R.id.drawer_layout)
         appBarConfiguration = AppBarConfiguration(
             setOf(R.id.vinylProfileFragment, R.id.deeplink_dest, R.id.add_vinyl),
             drawerLayout)
@@ -73,8 +73,10 @@ class MainActivity : AppCompatActivity() {
         sideNavView?.setupWithNavController(navController)
     }
 
-    private fun setupActionBar(navController: NavController,
-                               appBarConfig : AppBarConfiguration) {
+    private fun setupActionBar(
+        navController: NavController,
+        appBarConfig: AppBarConfiguration
+    ) {
         setupActionBarWithNavController(navController, appBarConfig)
     }
 
@@ -89,13 +91,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return item.onNavDestinationSelected(findNavController(R.id.my_nav_host_fragment))
-                || super.onOptionsItemSelected(item)
-
+        return item.onNavDestinationSelected(findNavController(R.id.my_nav_host_fragment)) ||
+                super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.my_nav_host_fragment).navigateUp()
     }
-
 }

@@ -15,9 +15,6 @@ import com.squareup.picasso.Picasso
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.models.vinyl.VinylModel
 
-
-
-
 class VinylProfileFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
@@ -31,7 +28,8 @@ class VinylProfileFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_vinyl_profile, container, false)
@@ -44,10 +42,10 @@ class VinylProfileFragment : Fragment() {
 
         artistTitle.text = vinyl.artist
         albumTitle.text = vinyl.name
-        if(vinyl.image != ""){
+        if (vinyl.image != "") {
             Picasso.get()
                 .load(vinyl.image)
-                .resize(1080,1080)
+                .resize(1080, 1080)
                 .centerCrop()
                 .into(albumArt)
         }
@@ -57,7 +55,6 @@ class VinylProfileFragment : Fragment() {
             val bundle = Bundle()
             bundle.putParcelable("vinyl", vinyl)
             view.findNavController().navigate(R.id.action_vinylProfileFragment_to_vinylMoreFragment, bundle)
-
         }
         return view
     }
@@ -73,7 +70,7 @@ class VinylProfileFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(vinyl: VinylModel) : VinylProfileFragment {
+        fun newInstance(vinyl: VinylModel): VinylProfileFragment {
             val args = Bundle()
             args.putParcelable("vinyl", vinyl)
             val fragment = VinylProfileFragment()

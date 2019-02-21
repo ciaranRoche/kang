@@ -20,7 +20,7 @@ import org.ciaranroche.kang.models.vinyl.VinylModel
 class AddVinylFragment : Fragment() {
     var vinyl = VinylModel()
 
-    lateinit var app : MainApp
+    lateinit var app: MainApp
 
     var IMAGE_REQUEST = 1
     var imageLocation = ""
@@ -92,5 +92,4 @@ class AddVinylFragment : Fragment() {
             }
         }
     }
-
 }

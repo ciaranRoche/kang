@@ -20,5 +20,4 @@ class MainApp : Application() {
         genreList = seedGenres()
         Log.i("start", "Application Started")
     }
-
 }

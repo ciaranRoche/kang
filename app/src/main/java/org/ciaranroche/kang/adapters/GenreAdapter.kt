@@ -10,7 +10,7 @@ import org.ciaranroche.kang.listeners.GenreListener
 import org.ciaranroche.kang.models.genre.GenreModel
 import org.jetbrains.anko.backgroundColorResource
 
-class GenreAdapter constructor(private var genres: List<GenreModel>, private val listener: GenreListener) : RecyclerView.Adapter<GenreAdapter.MainHolder>(){
+class GenreAdapter constructor(private var genres: List<GenreModel>, private val listener: GenreListener) : RecyclerView.Adapter<GenreAdapter.MainHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenreAdapter.MainHolder {
         return MainHolder(LayoutInflater.from(parent?.context).inflate(R.layout.card_vinyl, parent, false))
     }
@@ -22,11 +22,11 @@ class GenreAdapter constructor(private var genres: List<GenreModel>, private val
         holder.bind(genre, listener)
     }
 
-    class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bind(genre: GenreModel, listener: GenreListener){
+    class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(genre: GenreModel, listener: GenreListener) {
             itemView.backgroundColorResource = genre.color
             itemView.vinylGenre.text = genre.title
-            itemView.setOnClickListener{ listener.onGenreClick(genre) }
+            itemView.setOnClickListener { listener.onGenreClick(genre) }
         }
     }
 }

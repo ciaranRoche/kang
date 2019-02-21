@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken
 import org.ciaranroche.kang.helpers.exists
 import org.ciaranroche.kang.helpers.read
 import org.ciaranroche.kang.helpers.write
-import java.util.*
+import java.util.Random
 
 val JSON_FILE = "vinyl.json"
 val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
@@ -21,7 +21,7 @@ class VinylJSONStore(val context: Context) : VinylStore {
     var vinyls = mutableListOf<VinylModel>()
 
     init {
-        if(exists(context, JSON_FILE)) {
+        if (exists(context, JSON_FILE)) {
             deserialize()
         }
     }
@@ -34,14 +34,13 @@ class VinylJSONStore(val context: Context) : VinylStore {
 
     override fun update(vinyl: VinylModel) {
         var foundVinyl: VinylModel? = vinyls.find { v -> v.id == vinyl.id }
-        if (foundVinyl != null){
+        if (foundVinyl != null) {
             foundVinyl.artist = vinyl.artist
             foundVinyl.name = vinyl.name
             foundVinyl.desc = vinyl.desc
             foundVinyl.image = vinyl.image
             serialize()
         }
-
     }
 
     override fun delete(vinyl: VinylModel) {
@@ -72,5 +71,4 @@ class VinylJSONStore(val context: Context) : VinylStore {
         val jsonString = read(context, JSON_FILE)
         vinyls = Gson().fromJson(jsonString, listType)
     }
-
 }

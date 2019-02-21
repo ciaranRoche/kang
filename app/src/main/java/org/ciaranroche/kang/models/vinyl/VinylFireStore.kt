@@ -1,9 +1,11 @@
 package org.ciaranroche.kang.models.vinyl
 
 import android.content.Context
-import com.google.firebase.database.*
-
-
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.FirebaseDatabase
 
 class VinylFireStore(val context: Context) : VinylStore {
     val vinyls = ArrayList<VinylModel>()
@@ -20,7 +22,7 @@ class VinylFireStore(val context: Context) : VinylStore {
     override fun update(vinyl: VinylModel) {
         fetchVinyls {}
         var foundVinyl: VinylModel? = vinyls.find { v -> v.fbid == vinyl.fbid }
-        if (foundVinyl != null){
+        if (foundVinyl != null) {
             foundVinyl.artist = vinyl.artist
             foundVinyl.desc = vinyl.desc
             foundVinyl.name = vinyl.name
@@ -42,11 +44,11 @@ class VinylFireStore(val context: Context) : VinylStore {
 
     fun fetchVinyls(vinylsReady: () -> Unit) {
         val valueEventListener = object : ValueEventListener {
-            override fun onCancelled(error : DatabaseError) {
+            override fun onCancelled(error: DatabaseError) {
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                //dataSnapshot.children.mapNotNullTo(vinyls) { it.getValue<VinylModel>(VinylModel::class.java)}
+                // dataSnapshot.children.mapNotNullTo(vinyls) { it.getValue<VinylModel>(VinylModel::class.java)}
                 dataSnapshot.children.iterator().forEach { vinyls.add(it.getValue<VinylModel>(
                     VinylModel::class.java)!!) }
                 vinylsReady()

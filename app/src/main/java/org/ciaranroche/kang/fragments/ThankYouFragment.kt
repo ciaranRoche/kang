@@ -13,13 +13,14 @@ class ThankYouFragment : Fragment() {
     lateinit var mveBtn: Button
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_thank_you, container, false)
         mveBtn = view.findViewById(R.id.move_button)
 
-        mveBtn.setOnClickListener { view ->  view.findNavController().navigate(R.id.action_thankYouFragment_to_welcomeFragment)
+        mveBtn.setOnClickListener { view -> view.findNavController().navigate(R.id.action_thankYouFragment_to_welcomeFragment)
         }
         return view
     }

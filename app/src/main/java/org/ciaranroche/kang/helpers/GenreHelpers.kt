@@ -3,7 +3,7 @@ package org.ciaranroche.kang.helpers
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.models.genre.GenreModel
 
-fun seedGenres() : ArrayList<GenreModel> {
+fun seedGenres(): ArrayList<GenreModel> {
     val genres = ArrayList<GenreModel>()
     genres.add(GenreModel("All", "Doom metal is an extreme subgenre of heavy metal music that typically uses slower tempos, low-tuned guitars and a much thicker or heavier sound than other heavy metal genres. ", R.color.colorPrimaryDark))
     genres.add(GenreModel("Traditional", "Influenced by 70s and 80s heavy metal, traditional doom metal bands more commonly use higher guitar tunings and do not play as slow as many other doom bands.", R.color.genre1))
