@@ -8,6 +8,22 @@ Ciaran Roche - 20037160
 ## App Features
 Application features outlined below under headings set by assignment rubric.
 ### Functionality
+- CRUD Features
+  - View
+  - Update
+  - Delete
+  - Add 
+- Filter Views
+- AndroidX
+- Model View Controller
+- Firebase Database API
+- Activities
+- Adapters
+- Fragments
+- Helpers
+- Listeners
+- Main
+- Models
 
 ### Model and Persistence
 - 3 models:
