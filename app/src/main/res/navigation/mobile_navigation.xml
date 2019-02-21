@@ -85,8 +85,8 @@
             android:label="Thank You"
             tools:layout="@layout/fragment_thank_you">
         <action
-                android:id="@+id/action_thankYouFragment_to_vinylProfileFragment"
-                app:destination="@id/vinylProfileFragment"
+                android:id="@+id/action_thankYouFragment_to_welcomeFragment"
+                app:destination="@id/welcomeFragment"
                 app:enterAnim="@anim/slide_in_right"
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"

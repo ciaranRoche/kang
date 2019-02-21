@@ -42,7 +42,9 @@ class WelcomeFragment : Fragment(), GenreListener {
     }
 
     override fun onGenreClick(genre: GenreModel) {
-        view?.findNavController()?.navigate(R.id.action_welcomeFragment_to_vinylProfileFragment)
+        val bundle = Bundle()
+        bundle.putParcelable("genre", genre)
+        view?.findNavController()?.navigate(R.id.action_welcomeFragment_to_vinylProfileFragment, bundle)
     }
 }
 

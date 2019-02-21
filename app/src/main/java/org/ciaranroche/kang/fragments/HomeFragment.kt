@@ -12,6 +12,8 @@ import com.nshmura.recyclertablayout.RecyclerTabLayout
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.adapters.VinylPagerAdapter
 import org.ciaranroche.kang.main.MainApp
+import org.ciaranroche.kang.models.genre.GenreModel
+import org.ciaranroche.kang.models.vinyl.VinylModel
 
 
 class HomeFragment : Fragment(){
@@ -21,6 +23,15 @@ class HomeFragment : Fragment(){
     lateinit var recyclerTabLayout: RecyclerTabLayout
     lateinit var mveBtn: Button
     lateinit var app : MainApp
+    lateinit var genre: GenreModel
+    lateinit var vinylList: ArrayList<VinylModel>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            genre = it.getParcelable("genre")!!
+        }
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -33,7 +44,15 @@ class HomeFragment : Fragment(){
 
         app = this.context!!.applicationContext as MainApp
 
-        if(app.vinylsList.size == 0){
+
+        if (genre.title != "All") {
+            vinylList = ArrayList()
+            app.vinylsList.forEach { if (it.genre.title == genre.title) vinylList.add(it) }
+        } else {
+            vinylList = app.vinylsList
+        }
+
+        if(vinylList.size == 0){
             view = inflater.inflate(R.layout.fragment_no_vinyl, container, false)
             mveBtn = view.findViewById(R.id.move_button)
 
@@ -44,7 +63,7 @@ class HomeFragment : Fragment(){
             view = inflater.inflate(R.layout.fragment_vinyl_list, container, false)
 
             viewPager = view.findViewById(R.id.viewPager)
-            pagerAdapter = VinylPagerAdapter(fragmentManager!!, app.vinylsList)
+            pagerAdapter = VinylPagerAdapter(fragmentManager!!, vinylList)
 
             viewPager.adapter = pagerAdapter
             viewPager.currentItem = pagerAdapter.count / 2
