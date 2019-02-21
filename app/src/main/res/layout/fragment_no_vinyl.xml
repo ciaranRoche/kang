@@ -28,5 +28,6 @@ android:id="@+id/frameLayout2">
         android:layout_height="wrap_content"
         android:text="@string/add_vinyl"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text" />
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        android:theme="@style/MyButton"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

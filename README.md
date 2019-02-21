@@ -43,6 +43,7 @@ Application features outlined below under headings set by assignment rubric.
   - Use of bottom navigation to suit number of application main views.
   - Use of overflow menu
   - Up navigation support
+  - Styling UI elements
 
 ### DX
 - Built with:

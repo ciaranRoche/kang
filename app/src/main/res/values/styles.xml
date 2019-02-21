@@ -13,5 +13,10 @@
         <item name="colorControlNormal">@color/colorAccent</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
+    <style name="MyButton" parent="Base.ThemeOverlay.AppCompat.Dark">
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
+
 
 </resources>
