@@ -7,7 +7,7 @@
     <fragment
             android:id="@+id/welcomeFragment"
             android:name="org.ciaranroche.kang.fragments.WelcomeFragment"
-            android:label="fragment_welcome"
+            android:label="Select Kang Genre"
             tools:layout="@layout/fragment_welcome">
         <action
                 android:id="@+id/action_welcomeFragment_to_vinylProfileFragment"
@@ -82,7 +82,7 @@
     <fragment
             android:id="@+id/thankYouFragment"
             android:name="org.ciaranroche.kang.fragments.ThankYouFragment"
-            android:label="fragment_thank_you"
+            android:label="Thank You"
             tools:layout="@layout/fragment_thank_you">
         <action
                 android:id="@+id/action_thankYouFragment_to_vinylProfileFragment"
@@ -95,7 +95,7 @@
     <fragment
             android:id="@+id/vinylMoreFragment"
             android:name="org.ciaranroche.kang.fragments.VinylMoreFragment"
-            android:label="fragment_vinyl_more"
+            android:label="About Vinyl"
             tools:layout="@layout/fragment_vinyl_more">
         <action
                 android:id="@+id/action_vinylMoreFragment_to_thankYouFragment"
@@ -108,7 +108,7 @@
     <fragment
             android:id="@+id/noVinylFragment"
             android:name="org.ciaranroche.kang.fragments.NoVinylFragment"
-            android:label="fragment_no_vinyl"
+            android:label="No Vinyl"
             tools:layout="@layout/fragment_no_vinyl">
         <action
                 android:id="@+id/action_noVinylFragment_to_add_vinyl"
