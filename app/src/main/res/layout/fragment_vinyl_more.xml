@@ -78,12 +78,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/album_rating"
+            android:theme="@style/RatingBar"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/album_desc"/>
+            app:layout_constraintTop_toBottomOf="@+id/album_desc"
+            />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:src="@android:drawable/ic_delete"
@@ -94,5 +96,6 @@
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="@+id/album_rating"
             android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:backgroundTint="@color/colorPrimary"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
