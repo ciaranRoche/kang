@@ -7,12 +7,16 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/colorAccent</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
+
     <style name="MyButton" parent="Base.ThemeOverlay.AppCompat.Dark">
         <item name="colorControlHighlight">@color/colorAccent</item>
         <item name="colorButtonNormal">@color/colorPrimary</item>
