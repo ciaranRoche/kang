@@ -45,7 +45,7 @@
             android:id="@+id/add_vinyl"
             android:name="org.ciaranroche.kang.fragments.AddVinylFragment"
             android:label="@string/add_vinyl"
-            tools:layout="@layout/add_vinyl_fragment">
+            tools:layout="@layout/fragment_add_vinyl">
         <argument
                 android:name="flowStepNumber"
                 app:argType="integer"
@@ -64,7 +64,7 @@
             android:id="@+id/settings_dest"
             android:name="org.ciaranroche.kang.fragments.SettingsFragment"
             android:label="@string/settings"
-            tools:layout="@layout/settings_fragment" />
+            tools:layout="@layout/fragment_settings" />
 
 
     <fragment

@@ -37,7 +37,7 @@ class AddVinylFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.add_vinyl_fragment, container, false)
+        val view = inflater.inflate(R.layout.fragment_add_vinyl, container, false)
 
         app = this.context!!.applicationContext as MainApp
 
