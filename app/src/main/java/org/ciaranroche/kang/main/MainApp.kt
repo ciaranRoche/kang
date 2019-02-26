@@ -1,7 +1,6 @@
 package org.ciaranroche.kang.main
 
 import android.app.Application
-import android.util.Log
 import org.ciaranroche.kang.helpers.seedGenres
 import org.ciaranroche.kang.models.genre.GenreModel
 import org.ciaranroche.kang.models.vinyl.VinylFireStore
@@ -16,7 +15,7 @@ class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
         vinyls = VinylFireStore(applicationContext)
-        //vinyls.seed()
+        // vinyls.seed()
         vinylsList = vinyls.findAll() as ArrayList<VinylModel>
         genreList = seedGenres()
     }

@@ -24,6 +24,7 @@ Application features outlined below under headings set by assignment rubric.
 - Listeners
 - Main
 - Models
+- ImagePicker
 
 ### Model and Persistence
 - 3 models:
