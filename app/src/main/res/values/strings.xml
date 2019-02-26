@@ -19,6 +19,7 @@
     <string name="view_kang">View all Kang</string>
     <string name="return_kang">Return to Kang</string>
     <string name="more_info">Read More</string>
+    <string name="delete_button">Delete Vinyl</string>
 
     <!-- Screen strings -->
     <string name="vinyl_list">My Vinyl</string>
@@ -31,6 +32,6 @@
     <string name="send_deep_link_notification_button">Send deep link notification</string>
     <string name="welcome">Welcome to a Mobile Kang DataBase</string>
     <string name="thankyou">Thank you for your Contribution</string>
-    <string name="norecord">Aww dawg, there is no records for this genre</string>
+    <string name="norecord">Aww dawg, there is no records for this genre, but don\'t trip, feel free to add a vinyl</string>
 
 </resources>

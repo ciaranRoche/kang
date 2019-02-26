@@ -18,6 +18,9 @@ fun generateRandomId(): Long {
 }
 
 class VinylJSONStore(val context: Context) : VinylStore {
+    override fun seed() {
+    }
+
     var vinyls = mutableListOf<VinylModel>()
 
     init {

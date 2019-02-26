@@ -5,11 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.navigation.findNavController
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.helpers.addNewRating
@@ -46,7 +46,7 @@ class VinylMoreFragment : Fragment() {
 
         ratingBar = view.findViewById<RatingBar>(R.id.album_rating)
 
-        val deleteBtn = view.findViewById<FloatingActionButton>(R.id.delete_button)
+        val deleteBtn = view.findViewById<Button>(R.id.deleteBtn)
 
         artistTitle.text = vinyl.artist
         vinylTitle.text = vinyl.name

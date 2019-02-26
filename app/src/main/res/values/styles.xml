@@ -22,5 +22,10 @@
         <item name="colorButtonNormal">@color/colorPrimary</item>
     </style>
 
+    <style name="DeleteButton" parent="Base.ThemeOverlay.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/colorDanger</item>
+    </style>
+
 
 </resources>

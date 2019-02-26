@@ -16,8 +16,8 @@ class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
         vinyls = VinylFireStore(applicationContext)
+        //vinyls.seed()
         vinylsList = vinyls.findAll() as ArrayList<VinylModel>
         genreList = seedGenres()
-        Log.i("start", "Application Started")
     }
 }
