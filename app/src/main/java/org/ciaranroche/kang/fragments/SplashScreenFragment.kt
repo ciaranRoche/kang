@@ -1,7 +1,5 @@
 package org.ciaranroche.kang.fragments
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -15,7 +13,8 @@ import org.ciaranroche.kang.R
 class SplashScreenFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -27,8 +26,8 @@ class SplashScreenFragment : Fragment() {
 
         Handler().postDelayed({
             context?.let {
-                findNavController().navigate(R.id.action_splashScreenFragment_to_welcomeFragment, null , NavOptions.Builder().setPopUpTo(R.id.splashScreenFragment, true).build())
+                findNavController().navigate(R.id.action_splashScreenFragment_to_welcomeFragment, null, NavOptions.Builder().setPopUpTo(R.id.splashScreenFragment, true).build())
             }
-        }, 2500)
+        }, 1500)
     }
 }
