@@ -34,4 +34,7 @@
     <string name="thankyou">Thank you for your Contribution</string>
     <string name="norecord">Aww dawg, there is no records for this genre, but don\'t trip, feel free to add a vinyl</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
