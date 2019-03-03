@@ -25,6 +25,7 @@ Application features outlined below under headings set by assignment rubric.
 - Main
 - Models
 - ImagePicker
+- Picasso
 
 ### Model and Persistence
 - 3 models:
