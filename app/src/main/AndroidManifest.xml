@@ -3,36 +3,45 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="org.ciaranroche.kang">
 
-    <application
-            android:name=".main.MainApp"
-            android:allowBackup="false"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme"
-            tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.SplashActivity" android:noHistory="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<application
+        android:name=".main.MainApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+    <activity
+            android:name=".activities.SplashActivity"
+            android:noHistory="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activities.MainActivity">
-            <nav-graph android:value="@navigation/mobile_navigation" />
-        </activity>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+    </activity>
+    <activity
+            android:name=".activities.StartUpActivity"
+            android:noHistory="true">
+        <nav-graph android:value="@navigation/startup_navigation"/>
+    </activity>
+    <activity android:name=".activities.MainActivity">
+        <nav-graph android:value="@navigation/mobile_navigation"/>
+    </activity>
 
-        <receiver android:name=".providers.DeepLinkAppWidgetProvider">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
+    <receiver android:name=".providers.DeepLinkAppWidgetProvider">
+        <intent-filter>
+            <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+        </intent-filter>
 
-            <meta-data
-                    android:name="android.appwidget.provider"
-                    android:resource="@xml/deep_link_appwidget_info" />
-        </receiver>
+        <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/deep_link_appwidget_info"/>
+    </receiver>
 
-    </application>
+</application>
 
 </manifest>
+
+

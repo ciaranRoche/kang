@@ -9,7 +9,7 @@ fun addNewRating(newRating: Int, rating: RatingModel): RatingModel {
         3 -> rating.threestar += 1
         4 -> rating.fourstar += 1
         5 -> rating.fivestar += 1
-        else -> { // Note the block
+        else -> {
             rating.nostar += 1
         }
     }

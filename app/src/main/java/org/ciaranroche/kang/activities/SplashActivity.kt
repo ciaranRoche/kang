@@ -12,7 +12,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler().postDelayed({
-            startActivityForResult(intentFor<MainActivity>(), 0)
-        }, 2500)
+            startActivityForResult(intentFor<StartUpActivity>(), 0)
+        }, 1500)
     }
 }
