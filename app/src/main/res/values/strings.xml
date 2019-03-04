@@ -14,6 +14,7 @@
     <string name="vinyl_genre">Select Genre</string>
     <string name="user_name">User Name</string>
     <string name="user_password">Password</string>
+    <string name="user_email">Email</string>
 
     <!-- Button strings -->
     <string name="add_vinyl">Add Vinyl</string>
@@ -38,5 +39,6 @@
     <string name="thankyou">Thank you for your Contribution</string>
     <string name="norecord">Aww dawg, there is no records for this genre, but don\'t trip, feel free to add a vinyl</string>
     <string name="notuser">Not a user, Sign Up</string>
+    <string name="auser">Already a user, Log In</string>
 
 </resources>
