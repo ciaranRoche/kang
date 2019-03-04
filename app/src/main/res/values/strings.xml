@@ -12,6 +12,8 @@
     <string name="vinyl_artist">Artist</string>
     <string name="select_vinyl_image">Select A Vinyl Image</string>
     <string name="vinyl_genre">Select Genre</string>
+    <string name="user_name">User Name</string>
+    <string name="user_password">Password</string>
 
     <!-- Button strings -->
     <string name="add_vinyl">Add Vinyl</string>
@@ -35,9 +37,6 @@
     <string name="welcome">Welcome to a Mobile Kang DataBase</string>
     <string name="thankyou">Thank you for your Contribution</string>
     <string name="norecord">Aww dawg, there is no records for this genre, but don\'t trip, feel free to add a vinyl</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_start_up">StartUpActivity</string>
+    <string name="notuser">Not a user, Sign Up</string>
 
 </resources>
