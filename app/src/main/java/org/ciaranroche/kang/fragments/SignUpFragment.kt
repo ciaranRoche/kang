@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
+import com.google.android.material.textfield.TextInputEditText
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.activities.MainActivity
 import org.jetbrains.anko.support.v4.intentFor
@@ -23,6 +24,9 @@ class SignUpFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
         loginBtn = view.findViewById(R.id.loginBtn)
         signupBtn = view.findViewById(R.id.signUpBtn)
+        var userName = view.findViewById<TextInputEditText>(R.id.signupName)
+        var userEmail = view.findViewById<TextInputEditText>(R.id.signupEmail)
+        var userPassword = view.findViewById<TextInputEditText>(R.id.signupPassword)
 
         signupBtn.setOnClickListener { startActivityForResult(intentFor<MainActivity>(), 0) }
         loginBtn.setOnClickListener { view -> view.findNavController().navigate(R.id.action_signUpFragment_to_logInFragment) }
