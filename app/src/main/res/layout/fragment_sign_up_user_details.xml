@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context=".fragments.startup.SignUpUserDetailsFragment"
+                                                   android:id="@+id/frameLayout8"
+                                                   android:background="@color/colorPrimaryDark">
+
+    <Button
+            android:text="@string/accept_user_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/acceptBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:theme="@style/Butt"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider6"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/TextInputStartUp"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/textInputLayout8"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/profileImage">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_name"
+                android:textColor="@color/colorLight"
+                android:id="@+id/username"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/TextInputStartUp"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout8"
+            android:id="@+id/textInputLayout6">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_bio"
+                android:textColor="@color/colorLight"
+                android:id="@+id/userbio"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+            android:text="@string/user_fav_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+            android:textColor="@color/colorAccent"/>
+
+    <Spinner
+            android:id="@+id/genres_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            android:backgroundTint="@color/colorAccent"/>
+
+    <View
+            android:id="@+id/divider5"
+            android:layout_width="395dp"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/genres_spinner"
+            android:backgroundTint="@color/colorAccent"/>
+
+    <View
+            android:id="@+id/divider6"
+            android:layout_width="395dp"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/colorAccent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/userImageBtn"
+            android:layout_marginTop="8dp"/>
+
+    <Button
+            android:text="@string/update_profile_image"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/userImageBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider5"
+            android:theme="@style/Butt"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="8dp"/>
+
+    <ImageView
+            android:src="@drawable/icons8_music_record_filled_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileImage"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

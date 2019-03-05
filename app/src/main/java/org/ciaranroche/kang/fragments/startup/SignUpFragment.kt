@@ -10,8 +10,6 @@ import androidx.navigation.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import org.ciaranroche.kang.R
-import org.ciaranroche.kang.activities.MainActivity
-import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.toast
 
 class SignUpFragment : Fragment() {
@@ -27,19 +25,18 @@ class SignUpFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
         loginBtn = view.findViewById(R.id.loginBtn)
         signupBtn = view.findViewById(R.id.signUpBtn)
-        var userName = view.findViewById<TextInputEditText>(R.id.signupName)
         var userEmail = view.findViewById<TextInputEditText>(R.id.signupEmail)
         var userPassword = view.findViewById<TextInputEditText>(R.id.signupPassword)
 
-        signupBtn.setOnClickListener { doSignUp(userEmail.text.toString(), userPassword.text.toString()) }
+        signupBtn.setOnClickListener { doSignUp(userEmail.text.toString(), userPassword.text.toString(), view) }
         loginBtn.setOnClickListener { view -> view.findNavController().navigate(R.id.action_signUpFragment_to_logInFragment) }
         return view
     }
 
-    fun doSignUp(email: String, password: String) {
+    fun doSignUp(email: String, password: String, view: View) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                startActivityForResult(intentFor<MainActivity>(), 0)
+                view.findNavController().navigate(R.id.action_signUpFragment_to_signUpUserDetailsFragment)
             } else {
                 toast("Sign Up Failed: ${task.exception?.message}")
             }
