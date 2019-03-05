@@ -1,11 +1,15 @@
 package org.ciaranroche.kang.models.user
 
 import android.content.Context
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 
 class UserFireStore(val context: Context) : UserStore {
     val users = ArrayList<UserModel>()
-    lateinit var user : UserModel
+    lateinit var user: UserModel
     lateinit var db: DatabaseReference
     var appId = "kang-col"
 
@@ -27,7 +31,7 @@ class UserFireStore(val context: Context) : UserStore {
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                dataSnapshot.children.iterator().forEach {  it.getValue<UserModel>(UserModel::class.java) }
+                dataSnapshot.children.iterator().forEach { it.getValue<UserModel>(UserModel::class.java) }
                 usersReady
             }
         }
