@@ -10,7 +10,7 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark"/>
 
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/colorAccent</item>
@@ -20,6 +20,11 @@
     <style name="MyButton" parent="Base.ThemeOverlay.AppCompat.Dark">
         <item name="colorControlHighlight">@color/colorAccent</item>
         <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
+
+    <style name="Butt" parent="Base.ThemeOverlay.AppCompat.Dark">
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/colorPrimaryGrey</item>
     </style>
 
     <style name="DeleteButton" parent="Base.ThemeOverlay.AppCompat.Light">
@@ -51,6 +56,10 @@
     <style name="HintText" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ToolbarColored" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/colorAccent</item>
     </style>
 
 
