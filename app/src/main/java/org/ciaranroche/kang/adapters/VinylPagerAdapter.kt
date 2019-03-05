@@ -3,7 +3,7 @@ package org.ciaranroche.kang.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import org.ciaranroche.kang.fragments.VinylProfileFragment
+import org.ciaranroche.kang.fragments.main.VinylProfileFragment
 import org.ciaranroche.kang.models.vinyl.VinylModel
 
 class VinylPagerAdapter(fragmentManager: FragmentManager, private val vinyls: ArrayList<VinylModel>) : FragmentStatePagerAdapter(fragmentManager) {

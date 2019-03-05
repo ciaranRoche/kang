@@ -6,7 +6,7 @@
 
     <fragment
             android:id="@+id/logInFragment"
-            android:name="org.ciaranroche.kang.fragments.LogInFragment"
+            android:name="org.ciaranroche.kang.fragments.startup.LogInFragment"
             android:label="fragment_log_in"
             tools:layout="@layout/fragment_log_in">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
             android:id="@+id/signUpFragment"
-            android:name="org.ciaranroche.kang.fragments.SignUpFragment"
+            android:name="org.ciaranroche.kang.fragments.startup.SignUpFragment"
             android:label="fragment_sign_up"
             tools:layout="@layout/fragment_sign_up">
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
             android:id="@+id/splashFragment"
-            android:name="org.ciaranroche.kang.fragments.SplashFragment"
+            android:name="org.ciaranroche.kang.fragments.startup.SplashFragment"
             android:label="fragment_splash"
             tools:layout="@layout/fragment_splash">
         <action

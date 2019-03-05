@@ -1,4 +1,4 @@
-package org.ciaranroche.kang.fragments
+package org.ciaranroche.kang.fragments.main
 
 import android.app.NotificationChannel
 import android.app.NotificationManager

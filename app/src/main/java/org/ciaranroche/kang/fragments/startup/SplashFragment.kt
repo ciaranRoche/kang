@@ -1,4 +1,4 @@
-package org.ciaranroche.kang.fragments
+package org.ciaranroche.kang.fragments.startup
 
 import android.os.Bundle
 import android.os.Handler

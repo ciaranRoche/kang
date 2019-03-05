@@ -1,4 +1,4 @@
-package org.ciaranroche.kang.fragments
+package org.ciaranroche.kang.fragments.startup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,7 +14,7 @@ import org.ciaranroche.kang.activities.MainActivity
 import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.toast
 
-class LogInFragment : Fragment() {
+class SignUpFragment : Fragment() {
     lateinit var loginBtn: Button
     lateinit var signupBtn: Button
     var auth: FirebaseAuth = FirebaseAuth.getInstance()
@@ -24,19 +24,20 @@ class LogInFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_log_in, container, false)
+        val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
         loginBtn = view.findViewById(R.id.loginBtn)
         signupBtn = view.findViewById(R.id.signUpBtn)
-        var userName = view.findViewById<TextInputEditText>(R.id.login_username)
-        var userPassword = view.findViewById<TextInputEditText>(R.id.login_password)
+        var userName = view.findViewById<TextInputEditText>(R.id.signupName)
+        var userEmail = view.findViewById<TextInputEditText>(R.id.signupEmail)
+        var userPassword = view.findViewById<TextInputEditText>(R.id.signupPassword)
 
-        loginBtn.setOnClickListener { doLogin(userName.text.toString(), userPassword.text.toString()) }
-        signupBtn.setOnClickListener { view -> view.findNavController().navigate(R.id.action_logInFragment_to_signUpFragment) }
+        signupBtn.setOnClickListener { doSignUp(userEmail.text.toString(), userPassword.text.toString()) }
+        loginBtn.setOnClickListener { view -> view.findNavController().navigate(R.id.action_signUpFragment_to_logInFragment) }
         return view
     }
 
-    fun doLogin(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+    fun doSignUp(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 startActivityForResult(intentFor<MainActivity>(), 0)
             } else {
