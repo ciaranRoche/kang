@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorLight"
-                android:hint="@string/user_name"
+                android:hint="@string/user_email"
                 android:id="@+id/login_username"/>
     </com.google.android.material.textfield.TextInputLayout>
 

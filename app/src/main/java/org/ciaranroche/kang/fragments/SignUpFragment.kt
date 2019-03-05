@@ -8,13 +8,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.activities.MainActivity
 import org.jetbrains.anko.support.v4.intentFor
+import org.jetbrains.anko.support.v4.toast
 
 class SignUpFragment : Fragment() {
     lateinit var loginBtn: Button
     lateinit var signupBtn: Button
+    var auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,8 +31,18 @@ class SignUpFragment : Fragment() {
         var userEmail = view.findViewById<TextInputEditText>(R.id.signupEmail)
         var userPassword = view.findViewById<TextInputEditText>(R.id.signupPassword)
 
-        signupBtn.setOnClickListener { startActivityForResult(intentFor<MainActivity>(), 0) }
+        signupBtn.setOnClickListener { doSignUp(userEmail.text.toString(), userPassword.text.toString()) }
         loginBtn.setOnClickListener { view -> view.findNavController().navigate(R.id.action_signUpFragment_to_logInFragment) }
         return view
+    }
+
+    fun doSignUp(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                startActivityForResult(intentFor<MainActivity>(), 0)
+            } else {
+                toast("Sign Up Failed: ${task.exception?.message}")
+            }
+        }
     }
 }

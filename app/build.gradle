@@ -75,6 +75,7 @@ dependencies {
     implementation "com.google.code.gson:gson:2.8.5"
     implementation 'com.nshmura:recyclertablayout:1.5.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
     implementation 'com.google.firebase:firebase-database:16.0.6'
     implementation 'com.google.firebase:firebase-core:16.0.7'
     implementation 'org.jetbrains.anko:anko:0.10.8'
