@@ -58,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorLight"
                 android:hint="@string/user_email"
-                android:id="@+id/login_username"/>
+                android:id="@+id/login_username"
+                android:text="boop@boop.com"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -79,7 +80,8 @@
                 android:textColor="@color/colorLight"
                 android:hint="@string/user_password"
                 android:inputType="textPassword"
-                android:id="@+id/login_password"/>
+                android:id="@+id/login_password"
+                android:text="123456"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

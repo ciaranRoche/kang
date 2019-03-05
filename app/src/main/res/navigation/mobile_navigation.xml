@@ -122,4 +122,17 @@
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+    <fragment
+            android:id="@+id/logOutFragment"
+            android:name="org.ciaranroche.kang.fragments.LogOutFragment"
+            android:label="Log Out"
+            tools:layout="@layout/fragment_log_out">
+        <action
+                android:id="@+id/action_logOutFragment_to_welcomeFragment"
+                app:destination="@id/welcomeFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 </navigation>
