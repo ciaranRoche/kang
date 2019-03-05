@@ -12,7 +12,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryGrey"
             app:titleTextColor="@color/colorAccent"
             app:theme="@style/ToolbarColored"
             android:theme="@style/ThemeOverlay.AppCompat.Dark" />
@@ -28,7 +28,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav_view"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryGrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:itemIconTint="@color/colorAccent"
