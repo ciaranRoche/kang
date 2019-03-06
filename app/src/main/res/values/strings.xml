@@ -34,6 +34,7 @@
     <string name="accept_user_button">Accept Details</string>
     <string name="set_profile_image">Set Profile Image</string>
     <string name="update_profile_image">Update Profile Image</string>
+    <string name="set_dob">Set Date of Birth</string>
 
     <!-- Screen strings -->
     <string name="vinyl_list">My Vinyl</string>

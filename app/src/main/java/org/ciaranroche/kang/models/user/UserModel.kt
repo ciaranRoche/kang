@@ -15,6 +15,7 @@ data class UserModel(
     var email: String = "",
     var userImage: String = "",
     var age: Int = 0,
+    var dob: String = "",
     var bio: String = "",
     var favGenre: GenreModel = GenreModel(),
     var favVinyl: List<VinylModel> = emptyList()
