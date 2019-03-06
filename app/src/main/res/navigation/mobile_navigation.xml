@@ -68,7 +68,22 @@
             android:id="@+id/settings_dest"
             android:name="org.ciaranroche.kang.fragments.main.SettingsFragment"
             android:label="@string/settings"
-            tools:layout="@layout/fragment_settings" />
+            tools:layout="@layout/fragment_settings" >
+        <action
+                android:id="@+id/action_settings_dest_to_userProfileFragment"
+                app:destination="@id/userProfileFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+        <action
+                android:id="@+id/action_settings_dest_to_welcomeFragment"
+                app:destination="@id/welcomeFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 
 
     <fragment
@@ -130,6 +145,26 @@
         <action
                 android:id="@+id/action_logOutFragment_to_welcomeFragment"
                 app:destination="@id/welcomeFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+            android:id="@+id/userProfileFragment"
+            android:name="org.ciaranroche.kang.fragments.main.UserProfileFragment"
+            android:label="Profile"
+            tools:layout="@layout/fragment_user_profile">
+        <action
+                android:id="@+id/action_userProfileFragment_to_settings_dest"
+                app:destination="@id/settings_dest"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+        <action
+                android:id="@+id/action_userProfileFragment_to_vinylMoreFragment"
+                app:destination="@id/vinylMoreFragment"
                 app:enterAnim="@anim/slide_in_right"
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"

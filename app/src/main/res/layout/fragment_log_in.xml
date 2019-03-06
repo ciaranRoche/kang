@@ -59,7 +59,7 @@
                 android:textColor="@color/colorLight"
                 android:hint="@string/user_email"
                 android:id="@+id/login_username"
-                android:text="boop@boop.com"/>
+                android:text="rick@morty.com"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

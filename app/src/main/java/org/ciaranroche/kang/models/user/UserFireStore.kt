@@ -10,10 +10,8 @@ import com.google.firebase.database.FirebaseDatabase
 
 class UserFireStore(val context: Context) : UserStore {
     val users = ArrayList<UserModel>()
-    lateinit var user: UserModel
     lateinit var userId: String
     lateinit var db: DatabaseReference
-    var appId = "kang-col"
 
     override fun create(user: UserModel) {
         fetchUsers { }
@@ -45,9 +43,13 @@ class UserFireStore(val context: Context) : UserStore {
     }
 
     override fun findUser(email: String): UserModel {
-        fetchUsers { }
         val foundUser: UserModel? = users.find { u -> u.email == email }
         return foundUser!!
+    }
+
+    override fun findAll(): MutableList<UserModel> {
+        fetchUsers {}
+        return users
     }
 
     fun fetchUsers(usersReady: () -> Unit) {
@@ -56,8 +58,9 @@ class UserFireStore(val context: Context) : UserStore {
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                dataSnapshot.children.iterator().forEach { it.getValue<UserModel>(UserModel::class.java) }
-                usersReady
+                dataSnapshot.children.iterator().forEach { users.add(it.getValue<UserModel>(
+                    UserModel::class.java)!!) }
+                usersReady()
             }
         }
         userId = FirebaseAuth.getInstance().currentUser!!.uid

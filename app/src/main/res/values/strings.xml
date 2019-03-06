@@ -6,6 +6,7 @@
     <string name="deeplink">Deep Link</string>
     <string name="add_vinyl_menu">Add Vinyl</string>
     <string name="logout">Logout</string>
+    <string name="profile">Profile</string>
 
     <!-- Input strings -->
     <string name="vinyl_name">Vinyl Title</string>
@@ -49,8 +50,5 @@
     <string name="notuser">Not a user, Sign Up</string>
     <string name="auser">Already a user, Log In</string>
     <string name="logout_msg">Are you sure you want to log out?</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

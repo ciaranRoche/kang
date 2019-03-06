@@ -4,6 +4,10 @@
         android:id="@id/welcomeFragment"
         android:icon="@drawable/ic_home"
         android:title="@string/home" />
+    <item
+        android:id="@id/userProfileFragment"
+        android:icon="@drawable/ic_baseline_person"
+        android:title="@string/profile"/>
 <item
         android:id="@id/add_vinyl"
         android:icon="@drawable/plus_circle_outline"

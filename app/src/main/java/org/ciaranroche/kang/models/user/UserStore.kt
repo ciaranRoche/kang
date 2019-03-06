@@ -5,4 +5,5 @@ interface UserStore {
     fun update(user: UserModel)
     fun delete(user: UserModel)
     fun findUser(email: String): UserModel
+    fun findAll(): MutableList<UserModel>
 }
