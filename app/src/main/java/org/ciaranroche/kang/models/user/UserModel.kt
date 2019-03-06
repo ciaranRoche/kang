@@ -13,6 +13,7 @@ data class UserModel(
     var fbid: String = "",
     var username: String = "",
     var email: String = "",
+    var userImage: String = "",
     var age: Int = 0,
     var bio: String = "",
     var favGenre: GenreModel,
