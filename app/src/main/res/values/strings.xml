@@ -7,6 +7,7 @@
     <string name="add_vinyl_menu">Add Vinyl</string>
     <string name="logout">Logout</string>
     <string name="profile">Profile</string>
+    <string name="collection">My Collection</string>
 
     <!-- Input strings -->
     <string name="vinyl_name">Vinyl Title</string>

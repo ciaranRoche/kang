@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
+import com.squareup.picasso.Picasso
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.user.UserModel
@@ -27,10 +29,18 @@ class UserProfileFragment : Fragment() {
 
         val userName = view.findViewById<TextView>(R.id.userName)
         val userBio = view.findViewById<TextView>(R.id.userBio)
+        val userImage = view.findViewById<ImageView>(R.id.imageView)
         val settingsFab = view.findViewById<FloatingActionButton>(R.id.settings_fab)
 
         userName.text = user.username
         userBio.text = user.bio
+        if (user.userImage.isNotEmpty()) {
+            Picasso.get()
+                .load(user.userImage)
+                .resize(1080, 1080)
+                .centerCrop()
+                .into(userImage)
+        }
 
         settingsFab.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_userProfileFragment_to_settings_dest)

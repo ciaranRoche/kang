@@ -14,7 +14,6 @@ import com.google.android.material.textfield.TextInputEditText
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.activities.MainActivity
 import org.ciaranroche.kang.listeners.GenreSpinnerListener
-import org.ciaranroche.kang.models.genre.GenreModel
 import org.ciaranroche.kang.models.user.UserFireStore
 import org.ciaranroche.kang.models.user.UserModel
 import org.jetbrains.anko.doAsync
