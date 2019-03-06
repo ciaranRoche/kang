@@ -14,6 +14,9 @@ import org.ciaranroche.kang.R
 import org.ciaranroche.kang.activities.MainActivity
 import org.ciaranroche.kang.listeners.GenreSpinnerListener
 import org.ciaranroche.kang.models.genre.GenreModel
+import org.ciaranroche.kang.models.user.UserFireStore
+import org.ciaranroche.kang.models.user.UserModel
+import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.support.v4.intentFor
 
 class SignUpUserDetailsFragment : Fragment() {
@@ -24,6 +27,16 @@ class SignUpUserDetailsFragment : Fragment() {
     lateinit var favGenre: GenreModel
     lateinit var profileImage: ImageView
     lateinit var userImageBtn: Button
+    lateinit var user: UserModel
+    lateinit var userFireStore: UserFireStore
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            user = it.getParcelable("user")!!
+        }
+        userFireStore = UserFireStore(this.context!!.applicationContext)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,9 +47,7 @@ class SignUpUserDetailsFragment : Fragment() {
         acceptBtn = view.findViewById(R.id.acceptBtn)
         username = view.findViewById(R.id.username)
         userbio = view.findViewById(R.id.userbio)
-        profileImage = view.findViewById(R.id.profileImage)
         spinner = view.findViewById(R.id.genres_spinner)
-        userImageBtn = view.findViewById(R.id.userImageBtn)
 
         ArrayAdapter.createFromResource(
             this.context!!,
@@ -50,7 +61,17 @@ class SignUpUserDetailsFragment : Fragment() {
         val genreListener = GenreSpinnerListener()
         spinner.onItemSelectedListener = genreListener
 
-        acceptBtn.setOnClickListener { startActivityForResult(intentFor<MainActivity>(), 0) }
+        acceptBtn.setOnClickListener {
+            if (userFireStore != null) {
+                user.username = username.text.toString()
+                user.bio = userbio.text.toString()
+                user.favGenre = genreListener.genre
+                doAsync {
+                    userFireStore!!.create(user.copy())
+                    startActivityForResult(intentFor<MainActivity>(), 0)
+                }
+            }
+        }
 
         return view
     }

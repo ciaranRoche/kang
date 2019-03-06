@@ -16,7 +16,7 @@ class UserFireStore(val context: Context) : UserStore {
     var appId = "kang-col"
 
     override fun create(user: UserModel) {
-        fetchUsers {  }
+        fetchUsers { }
         val key = db.child("users").child("profile").push().key
         user.fbid = key!!
         users.add(user)
@@ -24,7 +24,7 @@ class UserFireStore(val context: Context) : UserStore {
     }
 
     override fun update(user: UserModel) {
-        fetchUsers {  }
+        fetchUsers { }
         var foundUser: UserModel? = users.find { u -> u.fbid == user.fbid }
         if (foundUser != null) {
             foundUser.username = user.username
@@ -39,12 +39,13 @@ class UserFireStore(val context: Context) : UserStore {
     }
 
     override fun delete(user: UserModel) {
-        fetchUsers {  }
+        fetchUsers { }
         db.child("users").child(userId).child("profile").child(user.fbid).removeValue()
         users.remove(user)
     }
 
     override fun findUser(email: String): UserModel {
+        fetchUsers { }
         val foundUser: UserModel? = users.find { u -> u.email == email }
         return foundUser!!
     }

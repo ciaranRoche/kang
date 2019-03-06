@@ -16,6 +16,6 @@ data class UserModel(
     var userImage: String = "",
     var age: Int = 0,
     var bio: String = "",
-    var favGenre: GenreModel,
+    var favGenre: GenreModel = GenreModel(),
     var favVinyl: List<VinylModel> = emptyList()
 ) : Parcelable
