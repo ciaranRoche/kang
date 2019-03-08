@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputEditText
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.activities.MainActivity
 import org.ciaranroche.kang.listeners.GenreSpinnerListener
+import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.user.UserFireStore
 import org.ciaranroche.kang.models.user.UserModel
 import org.jetbrains.anko.doAsync
@@ -29,16 +30,20 @@ class SignUpUserDetailsFragment : Fragment() {
     lateinit var userbio: TextInputEditText
     lateinit var profileImage: ImageView
     lateinit var userImageBtn: Button
-    lateinit var user: UserModel
-    lateinit var userFireStore: UserFireStore
     lateinit var dobBtn: Button
+
+    lateinit var user: UserModel
+    lateinit var app: MainApp
+
+    var userFireStore: UserFireStore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             user = it.getParcelable("user")!!
         }
-        userFireStore = UserFireStore(this.context!!.applicationContext)
+        app = this.context!!.applicationContext as MainApp
+        userFireStore = app.users as UserFireStore
     }
 
     override fun onCreateView(
@@ -72,7 +77,9 @@ class SignUpUserDetailsFragment : Fragment() {
                 user.favGenre = genreListener.genre
                 doAsync {
                     userFireStore!!.create(user.copy())
-                    startActivityForResult(intentFor<MainActivity>(), 0)
+                    userFireStore!!.fetchUsers {
+                        startActivityForResult(intentFor<MainActivity>(), 0)
+                    }
                 }
             }
         }

@@ -48,7 +48,6 @@ class UserFireStore(val context: Context) : UserStore {
     }
 
     override fun findAll(): MutableList<UserModel> {
-        fetchUsers {}
         return users
     }
 
@@ -58,8 +57,9 @@ class UserFireStore(val context: Context) : UserStore {
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                dataSnapshot.children.iterator().forEach { users.add(it.getValue<UserModel>(
-                    UserModel::class.java)!!) }
+                dataSnapshot.children.iterator().forEach {
+                    users.add(it.getValue<UserModel>(UserModel::class.java)!!)
+                }
                 usersReady()
             }
         }
