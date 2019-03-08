@@ -1,17 +1,24 @@
 package org.ciaranroche.kang.models.user
 
 import android.content.Context
+import android.graphics.Bitmap
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import org.ciaranroche.kang.helpers.readImageFromPath
+import java.io.ByteArrayOutputStream
+import java.io.File
 
 class UserFireStore(val context: Context) : UserStore {
     val users = ArrayList<UserModel>()
     lateinit var userId: String
     lateinit var db: DatabaseReference
+    lateinit var st: StorageReference
 
     override fun create(user: UserModel) {
         fetchUsers { }
@@ -19,6 +26,7 @@ class UserFireStore(val context: Context) : UserStore {
         user.fbid = key!!
         users.add(user)
         db.child("users").child(userId).child("profile").child(key).setValue(user)
+        updateImage(user)
     }
 
     override fun update(user: UserModel) {
@@ -34,6 +42,9 @@ class UserFireStore(val context: Context) : UserStore {
             foundUser.favVinyl = user.favVinyl
         }
         db.child("users").child(userId).child("profile").child(user.fbid).setValue(user)
+        if (user.userImage[0] != 'h') {
+            updateImage(user)
+        }
     }
 
     override fun delete(user: UserModel) {
@@ -51,6 +62,32 @@ class UserFireStore(val context: Context) : UserStore {
         return users
     }
 
+    fun updateImage(user: UserModel) {
+        fetchUsers { }
+        if (user.userImage != "") {
+            val fileName = File(user.userImage)
+            val imageName = fileName.getName()
+
+            var imageRef = st.child(userId + '/' + imageName)
+            val baos = ByteArrayOutputStream()
+            val bitmap = readImageFromPath(context, user.userImage)
+
+            bitmap?.let {
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                val data = baos.toByteArray()
+                val uploadTask = imageRef.putBytes(data)
+                uploadTask.addOnFailureListener {
+                    println(it.message)
+                }.addOnSuccessListener { taskSnapshot ->
+                    taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener {
+                        user.userImage = it.toString()
+                        db.child("users").child(userId).child("profile").child(user.fbid).setValue(user)
+                    }
+                }
+            }
+        }
+    }
+
     fun fetchUsers(usersReady: () -> Unit) {
         val valueEventListener = object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
@@ -65,6 +102,7 @@ class UserFireStore(val context: Context) : UserStore {
         }
         userId = FirebaseAuth.getInstance().currentUser!!.uid
         db = FirebaseDatabase.getInstance().reference
+        st = FirebaseStorage.getInstance().reference
         users.clear()
         db.child("users").child(userId).child("profile").addListenerForSingleValueEvent(valueEventListener)
     }
