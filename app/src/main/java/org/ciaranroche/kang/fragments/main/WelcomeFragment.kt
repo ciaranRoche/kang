@@ -13,10 +13,12 @@ import org.ciaranroche.kang.adapters.GenreAdapter
 import org.ciaranroche.kang.listeners.GenreListener
 import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.genre.GenreModel
+import org.ciaranroche.kang.models.vinyl.VinylModel
 
 class WelcomeFragment : Fragment(), GenreListener {
     lateinit var app: MainApp
     lateinit var recyclerView: RecyclerView
+    lateinit var vinylList: ArrayList<VinylModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +44,14 @@ class WelcomeFragment : Fragment(), GenreListener {
     }
 
     override fun onGenreClick(genre: GenreModel) {
+        if (genre.title != "All") {
+            vinylList = ArrayList()
+            app.vinylsList.forEach { if (it.genre.title == genre.title) vinylList.add(it) }
+        } else {
+            vinylList = app.vinylsList
+        }
         val bundle = Bundle()
-        bundle.putParcelable("genre", genre)
+        bundle.putParcelableArrayList("vinyl", vinylList)
         view?.findNavController()?.navigate(R.id.action_welcomeFragment_to_vinylProfileFragment, bundle)
     }
 }

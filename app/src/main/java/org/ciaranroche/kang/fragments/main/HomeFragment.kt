@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            genre = it.getParcelable("genre")!!
+            vinylList = it.getParcelableArrayList("vinyl")!!
         }
     }
 
@@ -45,13 +45,6 @@ class HomeFragment : Fragment() {
         val view: View
 
         app = this.context!!.applicationContext as MainApp
-
-        if (genre.title != "All") {
-            vinylList = ArrayList()
-            app.vinylsList.forEach { if (it.genre.title == genre.title) vinylList.add(it) }
-        } else {
-            vinylList = app.vinylsList
-        }
 
         if (vinylList.size == 0) {
             view = inflater.inflate(R.layout.fragment_no_vinyl, container, false)

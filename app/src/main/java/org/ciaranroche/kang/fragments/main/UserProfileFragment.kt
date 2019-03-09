@@ -1,6 +1,7 @@
 package org.ciaranroche.kang.fragments.main
 
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.squareup.picasso.Picasso
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.user.UserModel
+import java.util.ArrayList
 
 class UserProfileFragment : Fragment() {
     lateinit var app: MainApp
@@ -50,8 +52,8 @@ class UserProfileFragment : Fragment() {
 
         collectionBtn.setOnClickListener { view ->
             val bundle = Bundle()
-            bundle.putParcelableArray("vinyl", (user.favVinyl).toTypedArray())
-            view.findNavController().navigate(R.id.action_userProfileFragment_to_userFavoritesFragment, bundle)
+            bundle.putParcelableArrayList("vinyl", user.favVinyl as ArrayList<out Parcelable>)
+            view.findNavController().navigate(R.id.action_userProfileFragment_to_vinylProfileFragment, bundle)
         }
 
         return view
