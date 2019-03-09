@@ -94,19 +94,4 @@ class StartUpTest {
         val mainActivity = getInstrumentation().waitForMonitorWithTimeout(mainActivityMonitor, 5000)
         assertNotNull(mainActivity)
     }
-
-    private fun wait_splash() {
-        try {
-            Thread.sleep(2000)
-        } catch (e: InterruptedException) {
-            e.printStackTrace()
-        }
-    }
-
-    private fun getRandomString(length: Int): String {
-        val allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz"
-        return (1..length)
-            .map { allowedChars.random() }
-            .joinToString("")
-    }
 }
