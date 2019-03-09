@@ -1,5 +1,6 @@
 package org.ciaranroche.kang.fragments.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,6 +29,9 @@ class VinylMoreFragment : Fragment() {
     lateinit var ratingBar: RatingBar
     lateinit var favBtn: Button
 
+    private val inColBtn = "Remove from Collection"
+    private val notInColBtn = "Add to Collection"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,6 +39,7 @@ class VinylMoreFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -50,6 +55,10 @@ class VinylMoreFragment : Fragment() {
         val vinylDesc = view.findViewById<TextView>(R.id.album_desc)
         val vinylArt = view.findViewById<ImageView>(R.id.album_picture)
         favBtn = view.findViewById(R.id.favBtn)
+
+        if (inCollection()) {
+            favBtn.text = inColBtn
+        }
 
         ratingBar = view.findViewById<RatingBar>(R.id.album_rating)
 
@@ -79,21 +88,27 @@ class VinylMoreFragment : Fragment() {
         }
 
         favBtn.setOnClickListener {
-            user.favVinyl.add(vinyl)
-            app.users.update(user)
-            toast("${vinyl.name} added to your collection")
+            if (inCollection()) {
+                user.favVinyl.remove(vinyl)
+                app.users.update(user)
+                favBtn.text = notInColBtn
+                toast("${vinyl.name} removed from your collection")
+            } else {
+                user.favVinyl.add(vinyl)
+                app.users.update(user)
+                favBtn.text = inColBtn
+                toast("${vinyl.name} added to your collection")
+            }
         }
 
         return view
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            VinylMoreFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable("vinyl", vinyl)
-                }
-            }
+    fun inCollection(): Boolean {
+        val foundVinyl = user.favVinyl.find { v -> v.name == vinyl.name }
+        if (foundVinyl != null) {
+            return true
+        }
+        return false
     }
 }

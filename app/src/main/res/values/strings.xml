@@ -37,6 +37,7 @@
     <string name="update_profile_image">Update Profile Image</string>
     <string name="set_dob">Set Date of Birth</string>
     <string name="add_fav">Add to Collection</string>
+    <string name="del_fav">Remove from Collection</string>
 
     <!-- Screen strings -->
     <string name="vinyl_list">My Vinyl</string>
