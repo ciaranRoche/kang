@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
@@ -31,6 +32,7 @@ class UserProfileFragment : Fragment() {
         val userBio = view.findViewById<TextView>(R.id.userBio)
         val userImage = view.findViewById<ImageView>(R.id.imageView)
         val settingsFab = view.findViewById<FloatingActionButton>(R.id.settings_fab)
+        var collectionBtn = view.findViewById<Button>(R.id.collection_button)
 
         userName.text = user.username
         userBio.text = user.bio
@@ -44,6 +46,12 @@ class UserProfileFragment : Fragment() {
 
         settingsFab.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_userProfileFragment_to_settings_dest)
+        }
+
+        collectionBtn.setOnClickListener { view ->
+            val bundle = Bundle()
+            bundle.putParcelableArray("vinyl", (user.favVinyl).toTypedArray())
+            view.findNavController().navigate(R.id.action_userProfileFragment_to_userFavoritesFragment, bundle)
         }
 
         return view

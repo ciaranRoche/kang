@@ -36,6 +36,7 @@
     <string name="set_profile_image">Set Profile Image</string>
     <string name="update_profile_image">Update Profile Image</string>
     <string name="set_dob">Set Date of Birth</string>
+    <string name="add_fav">Add to Collection</string>
 
     <!-- Screen strings -->
     <string name="vinyl_list">My Vinyl</string>
@@ -52,5 +53,6 @@
     <string name="notuser">Not a user, Sign Up</string>
     <string name="auser">Already a user, Log In</string>
     <string name="logout_msg">Are you sure you want to log out?</string>
+    <string name="danger_msg">Danger Zone</string>
 
 </resources>

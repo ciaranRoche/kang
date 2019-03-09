@@ -10,18 +10,23 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.navigation.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.helpers.addNewRating
 import org.ciaranroche.kang.helpers.returnRating
 import org.ciaranroche.kang.main.MainApp
+import org.ciaranroche.kang.models.user.UserModel
 import org.ciaranroche.kang.models.vinyl.VinylModel
+import org.jetbrains.anko.support.v4.toast
 
 class VinylMoreFragment : Fragment() {
 
     lateinit var vinyl: VinylModel
+    lateinit var user: UserModel
     lateinit var app: MainApp
     lateinit var ratingBar: RatingBar
+    lateinit var favBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,11 +43,13 @@ class VinylMoreFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_vinyl_more, container, false)
 
         app = this.context!!.applicationContext as MainApp
+        user = app.users.findUser(FirebaseAuth.getInstance().currentUser!!.email!!)
 
         val artistTitle = view.findViewById<TextView>(R.id.artist_name)
         val vinylTitle = view.findViewById<TextView>(R.id.album_title)
         val vinylDesc = view.findViewById<TextView>(R.id.album_desc)
         val vinylArt = view.findViewById<ImageView>(R.id.album_picture)
+        favBtn = view.findViewById(R.id.favBtn)
 
         ratingBar = view.findViewById<RatingBar>(R.id.album_rating)
 
@@ -69,6 +76,12 @@ class VinylMoreFragment : Fragment() {
         ratingBar.setOnRatingBarChangeListener { ratingBar, fl, b ->
             vinyl.rating = addNewRating(fl.toInt(), vinyl.rating)
             app.vinyls.update(vinyl)
+        }
+
+        favBtn.setOnClickListener {
+            user.favVinyl.add(vinyl)
+            app.users.update(user)
+            toast("${vinyl.name} added to your collection")
         }
 
         return view

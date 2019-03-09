@@ -163,8 +163,21 @@
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
         <action
-                android:id="@+id/action_userProfileFragment_to_vinylMoreFragment"
-                app:destination="@id/vinylMoreFragment"
+                android:id="@+id/action_userProfileFragment_to_userFavoritesFragment"
+                app:destination="@id/userFavoritesFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+            android:id="@+id/userFavoritesFragment"
+            android:name="org.ciaranroche.kang.fragments.main.UserCollectionFragment"
+            android:label="fragment_user_favorites"
+            tools:layout="@layout/fragment_user_collection">
+        <action
+                android:id="@+id/action_userFavoritesFragment_to_welcomeFragment"
+                app:destination="@id/welcomeFragment"
                 app:enterAnim="@anim/slide_in_right"
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"
