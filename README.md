@@ -1,6 +1,7 @@
 # Kang Records
 [![CircleCI](https://circleci.com/gh/ciaranRoche/kang.svg?style=svg)](https://circleci.com/gh/ciaranRoche/kang)
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
+[![License](https://img.shields.io/badge/-Apache%202.0-blue.svg)](https://opensource.org/s/Apache-2.0)
 
 Vinally a modern app for Record Collectors
 
