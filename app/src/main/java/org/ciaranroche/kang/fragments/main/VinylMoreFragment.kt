@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
@@ -78,8 +79,7 @@ class VinylMoreFragment : Fragment() {
         }
 
         deleteBtn.setOnClickListener { view ->
-            app.vinyls.delete(vinyl)
-            view.findNavController().navigate(R.id.action_vinylMoreFragment_to_thankYouFragment)
+            confirmDelete(vinyl, view)
         }
 
         ratingBar.setOnRatingBarChangeListener { ratingBar, fl, b ->
@@ -110,5 +110,35 @@ class VinylMoreFragment : Fragment() {
             return true
         }
         return false
+    }
+
+    fun confirmDelete(vinyl: VinylModel, view: View) {
+        val alert = AlertDialog.Builder(context!!)
+
+        with(alert) {
+            setTitle("Confirm Vinyl Deletion")
+
+            setMessage("Are you sure you want to delete this record from Kang?")
+
+            setPositiveButton("Delete") {
+                    dialog, _ ->
+                dialog.dismiss()
+                deleteUser(vinyl, view)
+            }
+
+            setNegativeButton("Cancel") {
+                    dialog, _ ->
+                dialog.dismiss()
+            }
+        }
+
+        val dialog = alert.create()
+        dialog.show()
+    }
+
+    fun deleteUser(vinyl: VinylModel, view: View) {
+        app.vinyls.delete(vinyl)
+        view.findNavController().navigate(R.id.action_vinylMoreFragment_to_thankYouFragment)
+        toast("${user.username} Deleted")
     }
 }
