@@ -8,6 +8,11 @@ Vinally a modern app for Record Collectors
 ## Student Details
 Ciaran Roche - 20037160
 
+## ScreenShots
+### Start Up Activity
+|---|---|---|---|
+|![screenshot-1529586682443](https://i.gyazo.com/ba25cf45fb56997bbddceab23b133fe9.png)|![screenshot-1529586687514](https://i.gyazo.com/ba25cf45fb56997bbddceab23b133fe9.png)|![screenshot-1529586935542](https://i.gyazo.com/ba25cf45fb56997bbddceab23b133fe9.png)|![screenshot-1529586940913](https://i.gyazo.com/ba25cf45fb56997bbddceab23b133fe9.png)|
+
 ## App Features
 Application features outlined below under headings set by assignment rubric.
 ### Functionality
