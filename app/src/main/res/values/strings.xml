@@ -38,6 +38,7 @@
     <string name="set_dob">Set Date of Birth</string>
     <string name="add_fav">Add to Collection</string>
     <string name="del_fav">Remove from Collection</string>
+    <string name="del_user">Delete Profile</string>
 
     <!-- Screen strings -->
     <string name="vinyl_list">My Vinyl</string>
