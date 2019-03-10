@@ -1,6 +1,7 @@
 package org.ciaranroche.kang.fragments.main
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -55,6 +56,7 @@ class VinylMoreFragment : Fragment() {
         val vinylTitle = view.findViewById<TextView>(R.id.album_title)
         val vinylDesc = view.findViewById<TextView>(R.id.album_desc)
         val vinylArt = view.findViewById<ImageView>(R.id.album_picture)
+        val shareBtn = view.findViewById<Button>(R.id.shareBtn)
         favBtn = view.findViewById(R.id.favBtn)
 
         if (inCollection()) {
@@ -101,6 +103,10 @@ class VinylMoreFragment : Fragment() {
             }
         }
 
+        shareBtn.setOnClickListener {
+            doShare(vinyl)
+        }
+
         return view
     }
 
@@ -140,5 +146,14 @@ class VinylMoreFragment : Fragment() {
         app.vinyls.delete(vinyl)
         view.findNavController().navigate(R.id.action_vinylMoreFragment_to_thankYouFragment)
         toast("${user.username} Deleted")
+    }
+
+    fun doShare(vinyl: VinylModel) {
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.type = "text/plain"
+        val shareBody = "Hey I think you should checkout out ${vinyl.name} by ${vinyl.artist}, its some kickass ${vinyl.genre.title}"
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Crisp Record Inside")
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody)
+        startActivity(Intent.createChooser(sharingIntent, "Share via"))
     }
 }
