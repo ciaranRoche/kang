@@ -34,10 +34,17 @@ class LogInFragment : Fragment() {
         userFireStore = app.users as UserFireStore
         loginBtn = view.findViewById(R.id.loginBtn)
         signupBtn = view.findViewById(R.id.signUpBtn)
-        var userName = view.findViewById<TextInputEditText>(R.id.login_username)
-        var userPassword = view.findViewById<TextInputEditText>(R.id.login_password)
+        val userName = view.findViewById<TextInputEditText>(R.id.login_username)
+        val userPassword = view.findViewById<TextInputEditText>(R.id.login_password)
 
-        loginBtn.setOnClickListener { doLogin(userName.text.toString(), userPassword.text.toString()) }
+        loginBtn.setOnClickListener {
+            if (userName.text!!.isEmpty() || userPassword.text!!.isEmpty()) {
+                toast("Please fill out both fields")
+            } else {
+                doLogin(userName.text.toString(), userPassword.text.toString())
+            }
+        }
+
         signupBtn.setOnClickListener { view -> view.findNavController().navigate(R.id.action_logInFragment_to_signUpFragment) }
         return view
     }

@@ -30,7 +30,13 @@ class SignUpFragment : Fragment() {
         val userEmail = view.findViewById<TextInputEditText>(R.id.signupEmail)
         val userPassword = view.findViewById<TextInputEditText>(R.id.signupPassword)
 
-        signupBtn.setOnClickListener { doSignUp(userEmail.text.toString(), userPassword.text.toString(), view) }
+        signupBtn.setOnClickListener {
+            if (userEmail.text!!.isEmpty() || userPassword.text!!.isEmpty()) {
+                toast("Please fill out both fields")
+            } else {
+                doSignUp(userEmail.text.toString(), userPassword.text.toString(), view)
+            }
+        }
         loginBtn.setOnClickListener { view -> view.findNavController().navigate(R.id.action_signUpFragment_to_logInFragment) }
         return view
     }

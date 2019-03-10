@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Spinner
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.ArrayAdapter
 import com.google.android.material.textfield.TextInputEditText
 import org.ciaranroche.kang.R
@@ -19,6 +18,7 @@ import org.ciaranroche.kang.models.user.UserFireStore
 import org.ciaranroche.kang.models.user.UserModel
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.support.v4.intentFor
+import org.jetbrains.anko.support.v4.toast
 import java.util.Calendar
 import java.util.Date
 import java.text.SimpleDateFormat
@@ -28,14 +28,13 @@ class SignUpUserDetailsFragment : Fragment() {
     lateinit var acceptBtn: Button
     lateinit var username: TextInputEditText
     lateinit var userbio: TextInputEditText
-    lateinit var profileImage: ImageView
-    lateinit var userImageBtn: Button
     lateinit var dobBtn: Button
 
     lateinit var user: UserModel
     lateinit var app: MainApp
 
     var userFireStore: UserFireStore? = null
+    var dob = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,20 +70,27 @@ class SignUpUserDetailsFragment : Fragment() {
         spinner.onItemSelectedListener = genreListener
 
         acceptBtn.setOnClickListener {
-            if (userFireStore != null) {
-                user.username = username.text.toString()
-                user.bio = userbio.text.toString()
-                user.favGenre = genreListener.genre
-                doAsync {
-                    userFireStore!!.create(user.copy())
-                    userFireStore!!.fetchUsers {
-                        startActivityForResult(intentFor<MainActivity>(), 0)
+            if (username.text!!.isEmpty() || userbio.text!!.isEmpty()) {
+                toast("Please fill out all fields")
+            } else if (!dob) {
+                toast("Please give Data of Birth")
+            } else {
+                if (userFireStore != null) {
+                    user.username = username.text.toString()
+                    user.bio = userbio.text.toString()
+                    user.favGenre = genreListener.genre
+                    doAsync {
+                        userFireStore!!.create(user.copy())
+                        userFireStore!!.fetchUsers {
+                            startActivityForResult(intentFor<MainActivity>(), 0)
+                        }
                     }
                 }
             }
         }
 
         dobBtn.setOnClickListener {
+            dob = true
             val c: Calendar = Calendar.getInstance()
             val year = c.get(Calendar.YEAR)
             val month = c.get(Calendar.MONTH)
