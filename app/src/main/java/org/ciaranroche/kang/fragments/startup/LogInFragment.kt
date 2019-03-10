@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import androidx.navigation.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +20,7 @@ import org.jetbrains.anko.support.v4.toast
 class LogInFragment : Fragment() {
     lateinit var loginBtn: Button
     lateinit var signupBtn: Button
+    lateinit var progressBar: ProgressBar
     lateinit var app: MainApp
 
     var auth: FirebaseAuth = FirebaseAuth.getInstance()
@@ -34,13 +36,17 @@ class LogInFragment : Fragment() {
         userFireStore = app.users as UserFireStore
         loginBtn = view.findViewById(R.id.loginBtn)
         signupBtn = view.findViewById(R.id.signUpBtn)
+        progressBar = view.findViewById(R.id.loginProgressBar)
         val userName = view.findViewById<TextInputEditText>(R.id.login_username)
         val userPassword = view.findViewById<TextInputEditText>(R.id.login_password)
+
+        hideProgress()
 
         loginBtn.setOnClickListener {
             if (userName.text!!.isEmpty() || userPassword.text!!.isEmpty()) {
                 toast("Please fill out both fields")
             } else {
+                showProgress()
                 doLogin(userName.text.toString(), userPassword.text.toString())
             }
         }
@@ -54,12 +60,22 @@ class LogInFragment : Fragment() {
             if (task.isSuccessful) {
                 if (userFireStore != null) {
                     userFireStore!!.fetchUsers {
+                        hideProgress()
                         startActivityForResult(intentFor<MainActivity>(), 0)
                     }
                 }
             } else {
+                hideProgress()
                 toast("Sign Up Failed: ${task.exception?.message}")
             }
         }
+    }
+
+    fun showProgress() {
+        progressBar.visibility = View.VISIBLE
+    }
+
+    fun hideProgress() {
+        progressBar.visibility = View.GONE
     }
 }
