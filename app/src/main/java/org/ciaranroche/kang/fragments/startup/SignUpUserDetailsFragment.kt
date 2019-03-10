@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Spinner
 import android.widget.Button
 import android.widget.ArrayAdapter
+import android.widget.ProgressBar
 import com.google.android.material.textfield.TextInputEditText
 import org.ciaranroche.kang.R
 import org.ciaranroche.kang.activities.MainActivity
@@ -29,6 +30,7 @@ class SignUpUserDetailsFragment : Fragment() {
     lateinit var username: TextInputEditText
     lateinit var userbio: TextInputEditText
     lateinit var dobBtn: Button
+    lateinit var progressBar: ProgressBar
 
     lateinit var user: UserModel
     lateinit var app: MainApp
@@ -56,6 +58,9 @@ class SignUpUserDetailsFragment : Fragment() {
         userbio = view.findViewById(R.id.userbio)
         spinner = view.findViewById(R.id.genres_spinner)
         dobBtn = view.findViewById(R.id.dobBtn)
+        progressBar = view.findViewById(R.id.signupProgressBar)
+
+        hideProgress()
 
         ArrayAdapter.createFromResource(
             this.context!!,
@@ -76,12 +81,14 @@ class SignUpUserDetailsFragment : Fragment() {
                 toast("Please give Data of Birth")
             } else {
                 if (userFireStore != null) {
+                    showProgress()
                     user.username = username.text.toString()
                     user.bio = userbio.text.toString()
                     user.favGenre = genreListener.genre
                     doAsync {
                         userFireStore!!.create(user.copy())
                         userFireStore!!.fetchUsers {
+                            hideProgress()
                             startActivityForResult(intentFor<MainActivity>(), 0)
                         }
                     }
@@ -122,5 +129,13 @@ class SignUpUserDetailsFragment : Fragment() {
             age--
         }
         return age
+    }
+
+    fun showProgress() {
+        progressBar.visibility = View.VISIBLE
+    }
+
+    fun hideProgress() {
+        progressBar.visibility = View.GONE
     }
 }
