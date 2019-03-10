@@ -5,9 +5,6 @@
 
 Vinally a modern app for Record Collectors
 
-## Student Details
-Ciaran Roche - 20037160
-
 ## ScreenShots
 | Splash | Log In | Sign Up | User Details |
 |---|---|---|---|
@@ -16,55 +13,6 @@ Ciaran Roche - 20037160
 |![screenshot-1529586682443](https://i.gyazo.com/912c68841078585d1d1de444312a10b8.png)|![screenshot-1529586687514](https://i.gyazo.com/4d3bbf4033789b0f51aa519bf44f6eb4.png)|![screenshot-3435643235467](https://i.gyazo.com/47a46c1afa0fb8fac1162777e8bd6f05.png)|![screenshot-1213456743232](https://i.gyazo.com/f698996ec4c99c2f9074f917ead2bc60.png)|
 | User Settings | Vinyl Pager | About Vinyl | Log Out |
 |![screenshot-1529586682443](https://i.gyazo.com/7ec692d80cb88e3e5c21dfd773fceb57.png)|![screenshot-1529586687514](https://i.gyazo.com/6c8cc1f2fb357130357b43c428c5d982.png)|![screenshot-3435643235467](https://i.gyazo.com/1ab2628d6ea7fc4006b69556743aa068.png)|![screenshot-1213456743232](https://i.gyazo.com/3756ebfa5ffa4b8685119c2e15be3c37.png)|
-
-## App Features
-Application features outlined below under headings set by assignment rubric.
-### Functionality
-- CRUD Features
-  - View
-  - Update
-  - Delete
-  - Add 
-- Filter Views
-- AndroidX
-- Model View Controller
-- Firebase Database API
-- Activities
-- Adapters
-- Fragments
-- Helpers
-- Listeners
-- Main
-- Models
-- ImagePicker
-- Picasso
-
-### Model and Persistence
-- 3 models:
-  - Genre Model
-  - Rating Model
-  - Vinyl Model
-- Firebase Realtime Database
-
-### UX
-- Navigation Architecture Component
-- Use of UI elements to complement UX
-  - Spinner Dropdown
-  - RatingBar
-  - Fragment Pager
-  - RecyclerView.Adapter
-- Material Design Guidelines adhered to:
-  - Use of bottom navigation to suit number of application main views.
-  - Use of overflow menu
-  - Up navigation support
-  - Styling UI elements
-
-### DX
-- Built with:
-  - Kotlin
-  - Git 
-  - ktlint 
-  - CircleCI 
 
 ## Refrences
 [Android Jetpack](https://developer.android.com/jetpack/) was used throughout development of application
