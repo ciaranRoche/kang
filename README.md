@@ -9,10 +9,12 @@ Vinally a modern app for Record Collectors
 Ciaran Roche - 20037160
 
 ## ScreenShots
-| Splash | Splash | Splash | Splash |
+| Splash | Log In | Sign Up | User Details |
 |---|---|---|---|
-|![screenshot-1529586682443](https://i.gyazo.com/ba25cf45fb56997bbddceab23b133fe9.png)|![screenshot-1529586687514](https://i.gyazo.com/ba25cf45fb56997bbddceab23b133fe9.png)|![screenshot-1529586935542](https://i.gyazo.com/ba25cf45fb56997bbddceab23b133fe9.png)|![screenshot-1529586940913](https://i.gyazo.com/ba25cf45fb56997bbddceab23b133fe9.png)|
-
+|![screenshot-1529586682443](https://i.gyazo.com/ba25cf45fb56997bbddceab23b133fe9.png)|![screenshot-1529586687514](https://i.gyazo.com/8d3fde72231d4cbe6e0cc00f69e1954a.png)|![screenshot-1529586935542](https://i.gyazo.com/0dc5c0dffd3626cf138c4d8fe969b7b4.png)|![screenshot-1529586940913](https://i.gyazo.com/935930fca84857d85c60df610049e9ab.png)|
+| Date Picker | Spinner Drop down |
+|---|---|
+|![screenshot-1529586682443](https://i.gyazo.com/912c68841078585d1d1de444312a10b8.png)|![screenshot-1529586687514](https://i.gyazo.com/4d3bbf4033789b0f51aa519bf44f6eb4.png)|
 ## App Features
 Application features outlined below under headings set by assignment rubric.
 ### Functionality
