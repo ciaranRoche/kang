@@ -35,10 +35,11 @@ class ChatFragment : Fragment() {
         app = this.context!!.applicationContext as MainApp
         user = app.users.findUser(FirebaseAuth.getInstance().currentUser!!.email!!)
 
-        val fab = view.findViewById(R.id.fab) as FloatingActionButton
+        val fab = view.findViewById<FloatingActionButton>(R.id.fab)
+        val listOfMessages = view.findViewById<ListView>(R.id.list_of_messages)
 
         fab.setOnClickListener {
-            val input = view.findViewById(R.id.input) as EditText
+            val input = view.findViewById<EditText>(R.id.input)
 
             FirebaseDatabase.getInstance()
                 .reference
@@ -55,17 +56,15 @@ class ChatFragment : Fragment() {
             input.setText("")
         }
 
-        val listOfMessages = view.findViewById(R.id.list_of_messages) as ListView
-
         adapter = object : FirebaseListAdapter<ChatModel>(
             this.activity, ChatModel::class.java,
             R.layout.message, FirebaseDatabase.getInstance().reference.child("messages")
         ) {
             @SuppressLint("SimpleDateFormat")
-            override fun populateView(v: View, model: ChatModel, position: Int) {
-                val messageText = v.findViewById(R.id.message_text) as TextView
-                val messageUser = v.findViewById(R.id.message_user) as TextView
-                val messageTime = v.findViewById(R.id.message_time) as TextView
+            override fun populateView(view: View, model: ChatModel, position: Int) {
+                val messageText = view.findViewById<TextView>(R.id.message_text)
+                val messageUser = view.findViewById<TextView>(R.id.message_user)
+                val messageTime = view.findViewById<TextView>(R.id.message_time)
 
                 messageText.text = model.message
                 messageUser.text = model.user
