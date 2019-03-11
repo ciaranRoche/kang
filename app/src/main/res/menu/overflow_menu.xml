@@ -10,4 +10,9 @@
             android:icon="@drawable/ic_logout"
             android:menuCategory="secondary"
             android:title="@string/logout" />
+    <item
+            android:id="@+id/chatFragment"
+            android:icon="@drawable/ic_logout"
+            android:menuCategory="secondary"
+            android:title="@string/logout" />
 </menu>

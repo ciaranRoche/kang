@@ -158,4 +158,9 @@
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+    <fragment
+            android:id="@+id/chatFragment"
+            android:name="org.ciaranroche.kang.fragments.main.ChatFragment"
+            android:label="fragment_chat"
+            tools:layout="@layout/fragment_chat"/>
 </navigation>
