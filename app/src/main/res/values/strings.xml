@@ -8,6 +8,7 @@
     <string name="logout">Logout</string>
     <string name="profile">Profile</string>
     <string name="collection">My Collection</string>
+    <string name="chat">Chat</string>
 
     <!-- Input strings -->
     <string name="vinyl_name">Vinyl Title</string>
@@ -20,6 +21,7 @@
     <string name="user_email">Email</string>
     <string name="user_bio">Bio</string>
     <string name="user_fav_genre">Favorite Genre</string>
+    <string name="message">Message</string>
 
     <!-- Button strings -->
     <string name="add_vinyl">Add Vinyl</string>

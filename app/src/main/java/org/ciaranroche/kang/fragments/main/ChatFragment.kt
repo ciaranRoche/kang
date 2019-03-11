@@ -18,6 +18,7 @@ import org.ciaranroche.kang.models.user.UserModel
 import com.firebase.ui.database.FirebaseListAdapter
 import android.widget.TextView
 import java.text.SimpleDateFormat
+import java.util.Date
 
 class ChatFragment : Fragment() {
     lateinit var app: MainApp
@@ -41,11 +42,13 @@ class ChatFragment : Fragment() {
 
             FirebaseDatabase.getInstance()
                 .reference
+                .child("messages")
                 .push()
                 .setValue(
                     ChatModel(
                         input.text.toString(),
-                        user.username
+                        user.username,
+                        Date().time
                     )
                 )
 
@@ -56,7 +59,7 @@ class ChatFragment : Fragment() {
 
         adapter = object : FirebaseListAdapter<ChatModel>(
             this.activity, ChatModel::class.java,
-            R.layout.message, FirebaseDatabase.getInstance().reference
+            R.layout.message, FirebaseDatabase.getInstance().reference.child("messages")
         ) {
             @SuppressLint("SimpleDateFormat")
             override fun populateView(v: View, model: ChatModel, position: Int) {
