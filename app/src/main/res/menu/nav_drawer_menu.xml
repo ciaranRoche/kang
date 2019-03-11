@@ -5,9 +5,5 @@
                 android:id="@id/vinylProfileFragment"
                 android:icon="@drawable/ic_home"
                 android:title="@string/home" />
-        <item
-                android:id="@id/deeplink_dest"
-                android:icon="@drawable/ic_android"
-                android:title="@string/deeplink" />
     </group>
 </menu>

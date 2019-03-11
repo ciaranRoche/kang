@@ -87,18 +87,6 @@
 
 
     <fragment
-            android:id="@+id/deeplink_dest"
-            android:name="org.ciaranroche.kang.fragments.main.DeepLinkFragment"
-            android:label="@string/deeplink"
-            tools:layout="@layout/deeplink_fragment">
-
-        <argument
-                android:name="myarg"
-                android:defaultValue="Android!"/>
-
-        <deepLink app:uri="www.example.com/{myarg}" />
-    </fragment>
-    <fragment
             android:id="@+id/thankYouFragment"
             android:name="org.ciaranroche.kang.fragments.main.ThankYouFragment"
             android:label="Thank You"

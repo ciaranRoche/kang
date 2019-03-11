@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         val drawerLayout: DrawerLayout? = findViewById(R.id.drawer_layout)
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.vinylProfileFragment, R.id.deeplink_dest, R.id.add_vinyl),
+            setOf(R.id.vinylProfileFragment, R.id.add_vinyl),
             drawerLayout)
 
         setupActionBar(navController, appBarConfiguration)
