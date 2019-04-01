@@ -25,9 +25,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
 import android.content.ContentValues.TAG
 import android.util.Log
-import com.google.android.gms.tasks.Task
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.GoogleAuthProvider
+import org.ciaranroche.kang.models.user.UserModel
 
 
 class LogInFragment : Fragment() {
@@ -108,43 +107,46 @@ class LogInFragment : Fragment() {
         progressBar.visibility = View.GONE
     }
 
-    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
-                // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account!!)
             } catch (e: ApiException) {
-                // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e)
-                // ...
             }
         }
     }
 
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.id!!)
-
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         auth.signInWithCredential(credential).addOnCompleteListener(this.activity!!) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    toast("Auth Succs " + user)
                     if (userFireStore != null) {
                         userFireStore!!.fetchUsers {
-                            hideProgress()
-                            Log.i("boop", user!!.uid)
-                            //startActivityForResult(intentFor<MainActivity>(), 0)
+                            if(userFireStore!!.findAll().isEmpty()) {
+                                val acct = GoogleSignIn.getLastSignedInAccount(activity!!)
+                                val googleUser = UserModel()
+                                if (acct != null) {
+                                    googleUser.username = acct.displayName!!
+                                    googleUser.email = acct.email!!
+                                    googleUser.userImage = acct.photoUrl.toString()
+                                }
+                                userFireStore!!.create(googleUser)
+                                hideProgress()
+                                startActivityForResult(intentFor<MainActivity>(), 0)
+                            } else {
+                                hideProgress()
+                                startActivityForResult(intentFor<MainActivity>(), 0)
+                            }
                         }
                     }
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     toast("Authentication Failed")
                 }

@@ -1,6 +1,7 @@
 package org.ciaranroche.kang.fragments.main
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,13 +14,13 @@ import org.ciaranroche.kang.adapters.GenreAdapter
 import org.ciaranroche.kang.listeners.GenreListener
 import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.genre.GenreModel
+import org.ciaranroche.kang.models.user.UserFireStore
 import org.ciaranroche.kang.models.vinyl.VinylModel
 
 class WelcomeFragment : Fragment(), GenreListener {
     lateinit var app: MainApp
     lateinit var recyclerView: RecyclerView
     lateinit var vinylList: ArrayList<VinylModel>
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,6 +35,8 @@ class WelcomeFragment : Fragment(), GenreListener {
         val view = inflater.inflate(R.layout.fragment_welcome, container, false)
 
         app = this.context!!.applicationContext as MainApp
+
+        Log.i("boop", "hello" + app.users.findAll().toString())
 
         val layoutManager = LinearLayoutManager(this.context)
         recyclerView = view.findViewById(R.id.recyclerView)
