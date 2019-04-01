@@ -18,7 +18,6 @@ import org.ciaranroche.kang.models.user.UserFireStore
 import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.toast
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.SignInButton
 import com.firebase.ui.auth.ui.AcquireEmailHelper.RC_SIGN_IN
 import android.content.Intent
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -59,7 +58,7 @@ class LogInFragment : Fragment() {
         val userName = view.findViewById<TextInputEditText>(R.id.login_username)
         val userPassword = view.findViewById<TextInputEditText>(R.id.login_password)
 
-        val googleSignInButton = view.findViewById<SignInButton>(R.id.googleSignInBtn)
+        val googleSignInButton = view.findViewById<Button>(R.id.googleSignInBtn)
 
         hideProgress()
 
@@ -75,6 +74,7 @@ class LogInFragment : Fragment() {
         signupBtn.setOnClickListener { view -> view.findNavController().navigate(R.id.action_logInFragment_to_signUpFragment) }
 
         googleSignInButton.setOnClickListener {
+            showProgress()
             val signInIntent = googleSignInClient.getSignInIntent()
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
@@ -113,6 +113,7 @@ class LogInFragment : Fragment() {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account!!)
             } catch (e: ApiException) {
+                hideProgress()
                 Log.w(TAG, "Google sign in failed", e)
             }
         }
@@ -146,6 +147,7 @@ class LogInFragment : Fragment() {
                     }
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
+                    hideProgress()
                     toast("Authentication Failed")
                 }
             }

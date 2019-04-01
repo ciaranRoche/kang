@@ -42,6 +42,7 @@
     <string name="del_fav">Remove from Collection</string>
     <string name="del_user">Delete Profile</string>
     <string name="share">Share Record</string>
+    <string name="google_sign">Sign In With Google</string>
 
     <!-- Screen strings -->
     <string name="vinyl_list">My Vinyl</string>
