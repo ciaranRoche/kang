@@ -28,7 +28,6 @@ import android.util.Log
 import com.google.firebase.auth.GoogleAuthProvider
 import org.ciaranroche.kang.models.user.UserModel
 
-
 class LogInFragment : Fragment() {
     lateinit var loginBtn: Button
     lateinit var signupBtn: Button
@@ -50,7 +49,7 @@ class LogInFragment : Fragment() {
             .requestEmail()
             .build()
 
-        val googleSignInClient = GoogleSignIn.getClient(this.context!!, gso);
+        val googleSignInClient = GoogleSignIn.getClient(this.context!!, gso)
 
         app = this.context!!.applicationContext as MainApp
         userFireStore = app.users as UserFireStore
@@ -80,7 +79,6 @@ class LogInFragment : Fragment() {
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
         return view
-
     }
 
     fun doLogin(email: String, password: String) {
@@ -129,7 +127,7 @@ class LogInFragment : Fragment() {
                     val user = auth.currentUser
                     if (userFireStore != null) {
                         userFireStore!!.fetchUsers {
-                            if(userFireStore!!.findAll().isEmpty()) {
+                            if (userFireStore!!.findAll().isEmpty()) {
                                 val acct = GoogleSignIn.getLastSignedInAccount(activity!!)
                                 val googleUser = UserModel()
                                 if (acct != null) {
@@ -152,6 +150,4 @@ class LogInFragment : Fragment() {
                 }
             }
     }
-
-
 }

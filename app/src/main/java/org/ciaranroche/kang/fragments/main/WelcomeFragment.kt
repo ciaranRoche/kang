@@ -14,7 +14,6 @@ import org.ciaranroche.kang.adapters.GenreAdapter
 import org.ciaranroche.kang.listeners.GenreListener
 import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.genre.GenreModel
-import org.ciaranroche.kang.models.user.UserFireStore
 import org.ciaranroche.kang.models.vinyl.VinylModel
 
 class WelcomeFragment : Fragment(), GenreListener {

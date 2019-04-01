@@ -1,7 +1,6 @@
 package org.ciaranroche.kang.fragments.main
 
 import android.os.Bundle
-import android.util.Log
 
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +16,6 @@ import org.ciaranroche.kang.R
 import org.ciaranroche.kang.adapters.VinylPagerAdapter
 import org.ciaranroche.kang.main.MainApp
 import org.ciaranroche.kang.models.genre.GenreModel
-import org.ciaranroche.kang.models.user.UserFireStore
 import org.ciaranroche.kang.models.vinyl.VinylModel
 
 class HomeFragment : Fragment() {
