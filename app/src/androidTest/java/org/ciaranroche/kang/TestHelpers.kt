@@ -1,6 +1,6 @@
 package org.ciaranroche.kang
 
-fun wait_splash() {
+fun kang_wait() {
     try {
         Thread.sleep(2000)
     } catch (e: InterruptedException) {

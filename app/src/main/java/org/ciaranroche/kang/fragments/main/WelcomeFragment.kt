@@ -35,8 +35,6 @@ class WelcomeFragment : Fragment(), GenreListener {
 
         app = this.context!!.applicationContext as MainApp
 
-        Log.i("boop", "hello" + app.users.findAll().toString())
-
         val layoutManager = LinearLayoutManager(this.context)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = layoutManager

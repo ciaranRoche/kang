@@ -44,7 +44,7 @@ class StartUpTest {
     @Test
     fun login_success() {
         Log.e("@Test", "Performing login success test")
-        wait_splash()
+        kang_wait()
         Espresso.onView((withId(R.id.login_username)))
             .perform(ViewActions.typeText(username_typed))
 
@@ -63,7 +63,7 @@ class StartUpTest {
     @Test
     fun login_failure() {
         Log.e("@Test", "Performing login failure test")
-        wait_splash()
+        kang_wait()
         Espresso.onView((withId(R.id.login_username)))
             .perform(ViewActions.typeText(username_typed))
 
@@ -79,38 +79,38 @@ class StartUpTest {
         assertNull(mainActivity)
     }
 
-    @Test
-    fun sign_up_success() {
-        Log.e("@Test", "Performing sign up success test")
-        wait_splash()
-        Espresso.onView(withId(R.id.signUpBtn)).perform(ViewActions.click())
-
-        Espresso.onView((withId(R.id.signupEmail))).perform(ViewActions.typeText(new_user))
-
-        Espresso.onView((withId(R.id.signupPassword))).perform(ViewActions.typeText(correct_password))
-
-        Espresso.closeSoftKeyboard()
-
-        Espresso.onView(withId(R.id.signUpBtn)).perform(ViewActions.click())
-        wait_splash()
-        wait_splash()
-        Espresso.onView((withId(R.id.username))).perform(ViewActions.typeText(new_user))
-
-        Espresso.onView((withId(R.id.userbio))).perform(ViewActions.typeText(new_user))
-
-        Espresso.onView((withId(R.id.userbio))).perform(closeSoftKeyboard())
-
-        Espresso.closeSoftKeyboard()
-
-        Espresso.onView((withId(R.id.dobBtn))).perform(ViewActions.click())
-
-        Espresso.onView(withClassName(Matchers.equalTo(DatePicker::class.java.name))).perform(PickerActions.setDate(1960, 6, 19))
-
-        Espresso.onView(withId(android.R.id.button1)).perform(ViewActions.click())
-
-        Espresso.onView(withId(R.id.acceptBtn)).perform(ViewActions.click())
-
-        val mainActivity = getInstrumentation().waitForMonitorWithTimeout(mainActivityMonitor, 5000)
-        assertNotNull(mainActivity)
-    }
+//    @Test
+//    fun sign_up_success() {
+//        Log.e("@Test", "Performing sign up success test")
+//        kang_wait()
+//        Espresso.onView(withId(R.id.signUpBtn)).perform(ViewActions.click())
+//
+//        Espresso.onView((withId(R.id.signupEmail))).perform(ViewActions.typeText(new_user))
+//
+//        Espresso.onView((withId(R.id.signupPassword))).perform(ViewActions.typeText(correct_password))
+//
+//        Espresso.closeSoftKeyboard()
+//
+//        Espresso.onView(withId(R.id.signUpBtn)).perform(ViewActions.click())
+//        kang_wait()
+//        kang_wait()
+//        Espresso.onView((withId(R.id.username))).perform(ViewActions.typeText(new_user))
+//
+//        Espresso.onView((withId(R.id.userbio))).perform(ViewActions.typeText(new_user))
+//
+//        Espresso.onView((withId(R.id.userbio))).perform(closeSoftKeyboard())
+//
+//        Espresso.closeSoftKeyboard()
+//
+//        Espresso.onView((withId(R.id.dobBtn))).perform(ViewActions.click())
+//
+//        Espresso.onView(withClassName(Matchers.equalTo(DatePicker::class.java.name))).perform(PickerActions.setDate(1960, 6, 19))
+//
+//        Espresso.onView(withId(android.R.id.button1)).perform(ViewActions.click())
+//
+//        Espresso.onView(withId(R.id.acceptBtn)).perform(ViewActions.click())
+//
+//        val mainActivity = getInstrumentation().waitForMonitorWithTimeout(mainActivityMonitor, 5000)
+//        assertNotNull(mainActivity)
+//    }
 }
