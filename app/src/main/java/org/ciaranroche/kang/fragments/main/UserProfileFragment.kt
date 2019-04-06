@@ -2,6 +2,7 @@ package org.ciaranroche.kang.fragments.main
 
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -94,7 +95,14 @@ class UserProfileFragment : Fragment() {
 
     fun deleteUser(user: UserModel) {
         app.users.delete(user)
-        startActivityForResult(intentFor<StartUpActivity>(), 0)
-        toast("${user.username} Deleted")
+        val fireUser = FirebaseAuth.getInstance().currentUser
+        fireUser?.delete()
+            ?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d("Delete", "User account deleted.")
+                    startActivityForResult(intentFor<StartUpActivity>(), 0)
+                    toast("${user.username} Deleted")
+                }
+            }
     }
 }
