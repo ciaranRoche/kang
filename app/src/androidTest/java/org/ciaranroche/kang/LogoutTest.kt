@@ -9,6 +9,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import androidx.test.rule.ActivityTestRule
 import junit.framework.Assert.assertNotNull
+import org.ciaranroche.kang.activities.MainActivity
 import org.ciaranroche.kang.activities.StartUpActivity
 import org.junit.Before
 import org.junit.Rule
@@ -18,6 +19,8 @@ class LogoutTest {
 
     private val testActivityRule = ActivityTestRule(StartUpActivity::class.java, true, true)
     private val startUpMonitor = getInstrumentation().addMonitor(StartUpActivity::class.java!!.name, null, false)
+    private val mainActivityMonitor = getInstrumentation().addMonitor(MainActivity::class.java!!.name, null, false)
+
     @Rule
     fun rule() = testActivityRule
 
@@ -63,5 +66,23 @@ class LogoutTest {
 
         val startUpActivity = getInstrumentation().waitForMonitorWithTimeout(startUpMonitor, 5000)
         assertNotNull(startUpActivity)
+    }
+
+    @Test
+    fun logout_stay_success() {
+        Log.e("@Test", "Performing Logout Stay Success Test")
+        login()
+
+        Espresso.openActionBarOverflowOrOptionsMenu(InstrumentationRegistry.getInstrumentation().targetContext)
+        kang_wait()
+
+        Espresso.onView(ViewMatchers.withText(R.string.logout)).perform(ViewActions.click())
+        kang_wait()
+
+        Espresso.onView(withId(R.id.stayBtn)).perform(ViewActions.click())
+        kang_wait()
+
+        val mainActivity = getInstrumentation().waitForMonitorWithTimeout(mainActivityMonitor, 5000)
+        assertNotNull(mainActivity)
     }
 }
