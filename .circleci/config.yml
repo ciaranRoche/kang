@@ -21,11 +21,11 @@ jobs:
         name: Run Tests
         command: ./gradlew ktlint
     - run:
+        name: Setup SDK License
+        command: yes | sdkmanager --licenses
+    - run:
         name: Setup SDK Manger
         command: sdkmanager "system-images;android-16;default;armeabi-v7a" && echo "no"
-    - run:
-        name: Setup SDK License
-        command: sdkmanager --licenses
     - run:
         name: Setup AVD Manger
         command: avdmanager create avd -n test -k "system-images;android-16;default;armeabi-v7a"
