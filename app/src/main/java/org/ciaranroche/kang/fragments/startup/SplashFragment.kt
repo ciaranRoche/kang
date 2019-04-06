@@ -16,7 +16,6 @@ class SplashFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_splash, container, false)
 
         Handler().postDelayed({ view.findNavController().navigate(R.id.action_splashFragment_to_logInFragment, null, NavOptions.Builder().setPopUpTo(R.id.splashFragment, true).build())

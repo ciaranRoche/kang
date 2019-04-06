@@ -1,10 +1,12 @@
 package org.ciaranroche.kang
 
 import android.util.Log
+import android.widget.DatePicker
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.contrib.PickerActions
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import org.ciaranroche.kang.activities.StartUpActivity
@@ -15,7 +17,9 @@ import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import junit.framework.Assert.assertNotNull
 import junit.framework.Assert.assertNull
 import org.ciaranroche.kang.activities.MainActivity
+import org.hamcrest.Matchers
 import org.junit.Before
+
 
 @RunWith(AndroidJUnit4::class)
 class StartUpTest {
@@ -47,6 +51,8 @@ class StartUpTest {
         Espresso.onView(withId(R.id.login_password))
             .perform(ViewActions.typeText(correct_password))
 
+        Espresso.closeSoftKeyboard()
+
         Espresso.onView(withId(R.id.loginBtn))
             .perform(ViewActions.click())
 
@@ -63,6 +69,8 @@ class StartUpTest {
 
         Espresso.onView(withId(R.id.login_password))
             .perform(ViewActions.typeText(wrong_password))
+
+        Espresso.closeSoftKeyboard()
 
         Espresso.onView(withId(R.id.loginBtn))
             .perform(ViewActions.click())
@@ -81,13 +89,24 @@ class StartUpTest {
 
         Espresso.onView((withId(R.id.signupPassword))).perform(ViewActions.typeText(correct_password))
 
+        Espresso.closeSoftKeyboard()
+
         Espresso.onView(withId(R.id.signUpBtn)).perform(ViewActions.click())
+        wait_splash()
         wait_splash()
         Espresso.onView((withId(R.id.username))).perform(ViewActions.typeText(new_user))
 
         Espresso.onView((withId(R.id.userbio))).perform(ViewActions.typeText(new_user))
 
         Espresso.onView((withId(R.id.userbio))).perform(closeSoftKeyboard())
+
+        Espresso.closeSoftKeyboard()
+
+        Espresso.onView((withId(R.id.dobBtn))).perform(ViewActions.click())
+
+        Espresso.onView(withClassName(Matchers.equalTo(DatePicker::class.java.name))).perform(PickerActions.setDate(1960, 6, 19));
+
+        Espresso.onView(withId(android.R.id.button1)).perform(ViewActions.click())
 
         Espresso.onView(withId(R.id.acceptBtn)).perform(ViewActions.click())
 
