@@ -9,11 +9,14 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import androidx.test.rule.ActivityTestRule
+import androidx.test.runner.AndroidJUnit4
 import org.ciaranroche.kang.activities.StartUpActivity
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 
+@RunWith(AndroidJUnit4::class)
 class MenuTest {
 
     private val testActivityRule = ActivityTestRule(StartUpActivity::class.java, true, true)

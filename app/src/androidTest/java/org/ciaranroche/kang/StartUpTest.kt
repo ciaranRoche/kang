@@ -21,7 +21,7 @@ import org.junit.Before
 class StartUpTest {
 
     private val testActivityRule = ActivityTestRule(StartUpActivity::class.java, true, true)
-    private val mainActivityMonitor = getInstrumentation().addMonitor(MainActivity::class.java!!.getName(), null, false)
+    private val mainActivityMonitor = getInstrumentation().addMonitor(MainActivity::class.java!!.name, null, false)
 
     @Rule
     fun rule() = testActivityRule
