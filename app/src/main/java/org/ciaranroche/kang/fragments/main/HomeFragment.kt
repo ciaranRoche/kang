@@ -56,6 +56,8 @@ class HomeFragment : Fragment() {
         } else {
             view = inflater.inflate(R.layout.fragment_vinyl_list, container, false)
 
+            vinylList.sortBy { it.name }
+
             viewPager = view.findViewById(R.id.viewPager)
             pagerAdapter = VinylPagerAdapter(fragmentManager!!, vinylList)
 
