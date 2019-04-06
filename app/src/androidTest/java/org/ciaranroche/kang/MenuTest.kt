@@ -3,20 +3,15 @@ package org.ciaranroche.kang
 import android.util.Log
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
 import org.ciaranroche.kang.activities.StartUpActivity
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4::class)
-class ProfileTest {
+class MenuTest {
 
     private val testActivityRule = ActivityTestRule(StartUpActivity::class.java, true, true)
 
@@ -25,7 +20,6 @@ class ProfileTest {
 
     private val username_typed = "rick@morty.com"
     private val correct_password = "123456"
-    private val username = "Rick Sanchez"
 
     @Before
     fun setUp() {
@@ -51,12 +45,24 @@ class ProfileTest {
     }
 
     @Test
-    fun profile_success() {
-        Log.e("@Test", "Performing profile success test")
+    fun menu_success() {
+        Log.e("@Test", "Performing menu success test")
         login()
 
-        Espresso.onView(withId(R.id.userProfileFragment)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.userProfileFragment)).perform(ViewActions.click())
+        kang_wait()
+        Espresso.onView(ViewMatchers.withId(R.id.userProfileFragment)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 
-        Espresso.onView(withId(R.id.userName)).check(matches(withText(username)))
+        Espresso.onView(ViewMatchers.withId(R.id.chatFragment)).perform(ViewActions.click())
+        kang_wait()
+        Espresso.onView(ViewMatchers.withId(R.id.chatFragment)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+        Espresso.onView(ViewMatchers.withId(R.id.add_vinyl)).perform(ViewActions.click())
+        kang_wait()
+        Espresso.onView(ViewMatchers.withId(R.id.add_vinyl)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+        Espresso.onView(ViewMatchers.withId(R.id.welcomeFragment)).perform(ViewActions.click())
+        kang_wait()
+        Espresso.onView(ViewMatchers.withId(R.id.welcomeFragment)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }

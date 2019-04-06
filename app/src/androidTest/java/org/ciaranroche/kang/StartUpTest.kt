@@ -1,13 +1,10 @@
 package org.ciaranroche.kang
 
 import android.util.Log
-import android.widget.DatePicker
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
-import androidx.test.espresso.contrib.PickerActions
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import org.ciaranroche.kang.activities.StartUpActivity
@@ -18,7 +15,6 @@ import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import junit.framework.Assert.assertNotNull
 import junit.framework.Assert.assertNull
 import org.ciaranroche.kang.activities.MainActivity
-import org.hamcrest.Matchers
 import org.junit.Before
 
 @RunWith(AndroidJUnit4::class)
