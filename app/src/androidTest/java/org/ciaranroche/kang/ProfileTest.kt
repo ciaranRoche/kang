@@ -181,7 +181,7 @@ class ProfileTest {
 
         val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-        auth.createUserWithEmailAndPassword(new_user, correct_password).addOnCompleteListener { task ->
+        auth.signInWithEmailAndPassword(new_user, correct_password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Assert.assertTrue(false)
             } else {
