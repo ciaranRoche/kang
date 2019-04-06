@@ -6,7 +6,8 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.contrib.PickerActions
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import org.ciaranroche.kang.activities.StartUpActivity
@@ -19,7 +20,6 @@ import junit.framework.Assert.assertNull
 import org.ciaranroche.kang.activities.MainActivity
 import org.hamcrest.Matchers
 import org.junit.Before
-
 
 @RunWith(AndroidJUnit4::class)
 class StartUpTest {
@@ -104,7 +104,7 @@ class StartUpTest {
 
         Espresso.onView((withId(R.id.dobBtn))).perform(ViewActions.click())
 
-        Espresso.onView(withClassName(Matchers.equalTo(DatePicker::class.java.name))).perform(PickerActions.setDate(1960, 6, 19));
+        Espresso.onView(withClassName(Matchers.equalTo(DatePicker::class.java.name))).perform(PickerActions.setDate(1960, 6, 19))
 
         Espresso.onView(withId(android.R.id.button1)).perform(ViewActions.click())
 
