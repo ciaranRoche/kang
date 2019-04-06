@@ -1,4 +1,4 @@
-package org.ciaranroche.kang
+package org.ciaranroche.kang.helpers
 
 fun kang_wait() {
     try {

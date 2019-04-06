@@ -22,6 +22,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import com.google.firebase.auth.FirebaseAuth
 import junit.framework.Assert
 import org.ciaranroche.kang.activities.MainActivity
+import org.ciaranroche.kang.helpers.kang_wait
 import org.hamcrest.Matchers
 
 @RunWith(AndroidJUnit4::class)

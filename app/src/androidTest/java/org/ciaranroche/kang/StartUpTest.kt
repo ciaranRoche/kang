@@ -3,7 +3,6 @@ package org.ciaranroche.kang
 import android.util.Log
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
@@ -15,6 +14,8 @@ import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import junit.framework.Assert.assertNotNull
 import junit.framework.Assert.assertNull
 import org.ciaranroche.kang.activities.MainActivity
+import org.ciaranroche.kang.helpers.getRandomString
+import org.ciaranroche.kang.helpers.kang_wait
 import org.junit.Before
 
 @RunWith(AndroidJUnit4::class)

@@ -11,6 +11,7 @@ import androidx.test.rule.ActivityTestRule
 import junit.framework.Assert.assertNotNull
 import org.ciaranroche.kang.activities.MainActivity
 import org.ciaranroche.kang.activities.StartUpActivity
+import org.ciaranroche.kang.helpers.kang_wait
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

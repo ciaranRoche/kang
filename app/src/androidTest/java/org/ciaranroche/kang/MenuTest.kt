@@ -11,6 +11,7 @@ import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import org.ciaranroche.kang.activities.StartUpActivity
+import org.ciaranroche.kang.helpers.kang_wait
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
