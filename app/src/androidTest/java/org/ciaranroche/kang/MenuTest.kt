@@ -2,9 +2,12 @@ package org.ciaranroche.kang
 
 import android.util.Log
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import androidx.test.rule.ActivityTestRule
 import org.ciaranroche.kang.activities.StartUpActivity
 import org.junit.Before
@@ -64,5 +67,25 @@ class MenuTest {
         Espresso.onView(ViewMatchers.withId(R.id.welcomeFragment)).perform(ViewActions.click())
         kang_wait()
         Espresso.onView(ViewMatchers.withId(R.id.welcomeFragment)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    }
+
+    @Test
+    fun overflow_menu_success() {
+        Log.e("@Test", "Performing overflow menu success test")
+        login()
+
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
+        kang_wait()
+
+        Espresso.onView(withText(R.string.settings)).perform(ViewActions.click())
+        kang_wait()
+        Espresso.onView(ViewMatchers.withText(R.string.settings)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
+        kang_wait()
+
+        Espresso.onView(withText(R.string.logout)).perform(ViewActions.click())
+        kang_wait()
+        Espresso.onView(ViewMatchers.withText(R.string.logout)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }
