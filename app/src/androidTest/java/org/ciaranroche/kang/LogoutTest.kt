@@ -8,6 +8,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import androidx.test.rule.ActivityTestRule
+import androidx.test.runner.AndroidJUnit4
 import junit.framework.Assert.assertNotNull
 import org.ciaranroche.kang.activities.MainActivity
 import org.ciaranroche.kang.activities.StartUpActivity
@@ -15,7 +16,9 @@ import org.ciaranroche.kang.helpers.kang_wait
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 
+@RunWith(AndroidJUnit4::class)
 class LogoutTest {
 
     private val testActivityRule = ActivityTestRule(StartUpActivity::class.java, true, true)
