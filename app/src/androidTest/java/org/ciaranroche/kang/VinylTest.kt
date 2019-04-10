@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
@@ -54,7 +53,7 @@ class VinylTest {
     }
 
     @Test
-    fun add_vinyl_success(){
+    fun add_vinyl_success() {
         login()
 
         Espresso.onView(ViewMatchers.withId(R.id.add_vinyl)).perform(ViewActions.click())
@@ -83,8 +82,5 @@ class VinylTest {
         Espresso.onView(ViewMatchers.withId(R.id.welcomeFragment)).perform(ViewActions.click())
         kang_wait()
         Espresso.onView(ViewMatchers.withId(R.id.welcomeFragment)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-
-
     }
-
 }
