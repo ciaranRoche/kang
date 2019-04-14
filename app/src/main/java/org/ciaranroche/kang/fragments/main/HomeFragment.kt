@@ -1,4 +1,4 @@
-package org.ciaranroche.kang.fragments
+package org.ciaranroche.kang.fragments.main
 
 import android.os.Bundle
 
@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            genre = it.getParcelable("genre")!!
+            vinylList = it.getParcelableArrayList("vinyl")!!
         }
     }
 
@@ -46,13 +46,6 @@ class HomeFragment : Fragment() {
 
         app = this.context!!.applicationContext as MainApp
 
-        if (genre.title != "All") {
-            vinylList = ArrayList()
-            app.vinylsList.forEach { if (it.genre.title == genre.title) vinylList.add(it) }
-        } else {
-            vinylList = app.vinylsList
-        }
-
         if (vinylList.size == 0) {
             view = inflater.inflate(R.layout.fragment_no_vinyl, container, false)
             mveBtn = view.findViewById(R.id.move_button)
@@ -62,6 +55,8 @@ class HomeFragment : Fragment() {
             }
         } else {
             view = inflater.inflate(R.layout.fragment_vinyl_list, container, false)
+
+            vinylList.sortBy { it.name }
 
             viewPager = view.findViewById(R.id.viewPager)
             pagerAdapter = VinylPagerAdapter(fragmentManager!!, vinylList)

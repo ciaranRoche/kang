@@ -6,7 +6,7 @@
         >
     <fragment
             android:id="@+id/welcomeFragment"
-            android:name="org.ciaranroche.kang.fragments.WelcomeFragment"
+            android:name="org.ciaranroche.kang.fragments.main.WelcomeFragment"
             android:label="Select Kang Genre"
             tools:layout="@layout/fragment_welcome">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
             android:id="@+id/vinylProfileFragment"
-            android:name="org.ciaranroche.kang.fragments.HomeFragment"
+            android:name="org.ciaranroche.kang.fragments.main.HomeFragment"
             android:label="Kang"
             tools:layout="@layout/fragment_vinyl_list">
         <action
@@ -38,12 +38,16 @@
                 app:popExitAnim="@anim/slide_out_right"/>
         <action
                 android:id="@+id/action_vinylProfileFragment_to_noVinylFragment"
-                app:destination="@id/noVinylFragment"/>
+                app:destination="@id/noVinylFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
             android:id="@+id/add_vinyl"
-            android:name="org.ciaranroche.kang.fragments.AddVinylFragment"
+            android:name="org.ciaranroche.kang.fragments.main.AddVinylFragment"
             android:label="@string/add_vinyl"
             tools:layout="@layout/fragment_add_vinyl">
         <argument
@@ -62,26 +66,29 @@
 
     <fragment
             android:id="@+id/settings_dest"
-            android:name="org.ciaranroche.kang.fragments.SettingsFragment"
+            android:name="org.ciaranroche.kang.fragments.main.SettingsFragment"
             android:label="@string/settings"
-            tools:layout="@layout/fragment_settings" />
-
-
-    <fragment
-            android:id="@+id/deeplink_dest"
-            android:name="org.ciaranroche.kang.fragments.DeepLinkFragment"
-            android:label="@string/deeplink"
-            tools:layout="@layout/deeplink_fragment">
-
-        <argument
-                android:name="myarg"
-                android:defaultValue="Android!"/>
-
-        <deepLink app:uri="www.example.com/{myarg}" />
+            tools:layout="@layout/fragment_settings" >
+        <action
+                android:id="@+id/action_settings_dest_to_userProfileFragment"
+                app:destination="@id/userProfileFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+        <action
+                android:id="@+id/action_settings_dest_to_welcomeFragment"
+                app:destination="@id/welcomeFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+
+
     <fragment
             android:id="@+id/thankYouFragment"
-            android:name="org.ciaranroche.kang.fragments.ThankYouFragment"
+            android:name="org.ciaranroche.kang.fragments.main.ThankYouFragment"
             android:label="Thank You"
             tools:layout="@layout/fragment_thank_you">
         <action
@@ -94,7 +101,7 @@
     </fragment>
     <fragment
             android:id="@+id/vinylMoreFragment"
-            android:name="org.ciaranroche.kang.fragments.VinylMoreFragment"
+            android:name="org.ciaranroche.kang.fragments.main.VinylMoreFragment"
             android:label="About Vinyl"
             tools:layout="@layout/fragment_vinyl_more">
         <action
@@ -107,7 +114,7 @@
     </fragment>
     <fragment
             android:id="@+id/noVinylFragment"
-            android:name="org.ciaranroche.kang.fragments.NoVinylFragment"
+            android:name="org.ciaranroche.kang.fragments.main.NoVinylFragment"
             android:label="No Vinyl"
             tools:layout="@layout/fragment_no_vinyl">
         <action
@@ -118,4 +125,42 @@
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+    <fragment
+            android:id="@+id/logOutFragment"
+            android:name="org.ciaranroche.kang.fragments.main.LogOutFragment"
+            android:label="Log Out"
+            tools:layout="@layout/fragment_log_out">
+        <action
+                android:id="@+id/action_logOutFragment_to_welcomeFragment"
+                app:destination="@id/welcomeFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+            android:id="@+id/userProfileFragment"
+            android:name="org.ciaranroche.kang.fragments.main.UserProfileFragment"
+            android:label="Profile"
+            tools:layout="@layout/fragment_user_profile">
+        <action
+                android:id="@+id/action_userProfileFragment_to_settings_dest"
+                app:destination="@id/settings_dest"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+        <action
+                android:id="@+id/action_userProfileFragment_to_vinylProfileFragment"
+                app:destination="@id/vinylProfileFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+            android:id="@+id/chatFragment"
+            android:name="org.ciaranroche.kang.fragments.main.ChatFragment"
+            android:label="Kang Chat"
+            tools:layout="@layout/fragment_chat"/>
 </navigation>

@@ -5,4 +5,9 @@
             android:icon="@drawable/ic_settings"
             android:menuCategory="secondary"
             android:title="@string/settings" />
+    <item
+            android:id="@+id/logOutFragment"
+            android:icon="@drawable/ic_logout"
+            android:menuCategory="secondary"
+            android:title="@string/logout" />
 </menu>

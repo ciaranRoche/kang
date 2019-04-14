@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:id="@+id/activity_main"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context=".fragments.main.ChatFragment"
+                                                   android:background="@color/colorPrimaryDark">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/ic_baseline_send"
+            android:id="@+id/fab"
+            android:tint="@color/colorPrimary"
+            app:fabSize="mini"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:backgroundTint="@color/colorAccent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/TextInputStartUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/textInputLayout12"
+            app:layout_constraintEnd_toStartOf="@+id/fab"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.516"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/message"
+                android:id="@+id/input"
+                android:textColor="@color/colorLight"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:dividerHeight="16dp"
+            android:divider="@android:color/transparent"
+            android:id="@+id/list_of_messages"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout12"
+            android:background="@color/colorLight"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,14 +7,13 @@ import org.ciaranroche.kang.models.genre.GenreModel
 
 class GenreSpinnerListener : AdapterView.OnItemSelectedListener {
 
-    lateinit var genre: GenreModel
-    lateinit var genreList: ArrayList<GenreModel>
+    var genreList: ArrayList<GenreModel> = seedGenres()
+    var genre: GenreModel = genreList.find { g -> g.title == "Traditional" }!!
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-        genreList = seedGenres()
         genre = when (parent?.getItemAtPosition(pos).toString()) {
             "Traditional" -> genreList.find { g -> g.title == "Traditional" }!!
             "Black" -> genreList.find { g -> g.title == "Black" }!!
